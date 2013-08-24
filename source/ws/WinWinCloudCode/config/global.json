@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "WinWin": {
+            "applicationId": "AQsFyNyhNcS88YHvdSM2xNudh8ZZTd2U2W8PPHvf", 
+            "masterKey": "dCxgvw2as9frnEz4AUi6pnIgVtS5k2IiJURsZQlU"
+        }, 
+        "_default": {
+            "link": "WinWin"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.9"
+    }
+}
