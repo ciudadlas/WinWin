@@ -11,4 +11,8 @@
 
 @interface WinWinHomeViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
+@property (nonatomic, strong) IBOutlet UILabel *welcomeLabel;
+
+- (IBAction)logOutButtonTapAction:(id)sender;
+
 @end
