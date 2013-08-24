@@ -13,8 +13,12 @@
 @interface WinWinHomeViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, PayPalPaymentDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *welcomeLabel;
+@property (weak, nonatomic) IBOutlet UIView *addWinsView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *addWinsViewHeightConstraint;
 
 - (IBAction)logOutButtonTapAction:(id)sender;
 - (IBAction)paypalButtonTapAction:(id)sender;
+- (IBAction)tapAdd:(id)sender;
+
 
 @end

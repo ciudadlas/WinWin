@@ -237,5 +237,14 @@
     }
 }
 
+- (IBAction)tapAdd:(id)sender {
+    [UIView animateWithDuration:.5
+                     animations:^{
+                         self.addWinsViewHeightConstraint.constant = self.view.bounds.size.height;
+                         [self.view layoutSubviews];
+                     }];
+
+}
+
 
 @end

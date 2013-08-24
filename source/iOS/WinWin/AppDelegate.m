@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "WinWinHomeViewController.h"
+#import "MyTableController.h"
 
 @implementation AppDelegate
 
@@ -44,8 +45,10 @@
     
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
-    WinWinHomeViewController *homeVC = [[WinWinHomeViewController alloc] init];
-    self.window.rootViewController = homeVC;
+//    WinWinHomeViewController *homeVC = [[WinWinHomeViewController alloc] init];
+    MyTableController *homeVC = [[MyTableController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    self.window.rootViewController = navController;
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
