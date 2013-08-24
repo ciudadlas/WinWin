@@ -5,15 +5,16 @@
 //  Created by James Yu on 12/29/11.
 //
 
-#import "MyTableController.h"
+#import "WinWinListViewController.h"
+#import "WinWinDetailViewController.h"
 
-@interface MyTableController ()
+@interface WinWinListViewController ()
 
 @property (assign) BOOL addingNew;
 
 @end
 
-@implementation MyTableController
+@implementation WinWinListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -63,14 +64,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -219,7 +220,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [[UIViewController alloc] init];
+    PFObject *object = [self objectAtIndexPath:indexPath];
+    WinWinDetailViewController *vc = [[WinWinDetailViewController alloc] initWithNibName:@"WinWinDetailViewController" bundle:nil];
+    vc.winWin = object;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

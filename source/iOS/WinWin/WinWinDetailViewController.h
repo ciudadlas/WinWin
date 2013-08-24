@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface WinWinDetailViewController : UIViewController
+
+@property (strong, nonatomic) PFObject *winWin;
 
 @end

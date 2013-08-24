@@ -35,4 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setWinWin:(PFObject *)winWin {
+    self.title = [winWin objectForKey:@"name"];
+}
+
 @end
