@@ -41,8 +41,7 @@
             // If user is linked to Twitter, we'll use their Twitter screen name
             self.welcomeLabel.text =[NSString stringWithFormat:NSLocalizedString(@"Welcome @%@!", nil), [PFTwitterUtils twitter].screenName];
             
-        } /*else if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-            
+        } else if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
             // If user is linked to Facebook, we'll use the Facebook Graph API to fetch their full name. But first, show a generic Welcome label.
             self.welcomeLabel.text =[NSString stringWithFormat:NSLocalizedString(@"Welcome!", nil)];
             
@@ -58,7 +57,7 @@
                 }
             }];
             
-        }*/ else {
+        } else {
             // If user is linked to neither, let's use their username for the Welcome label.
             self.welcomeLabel.text =[NSString stringWithFormat:NSLocalizedString(@"Welcome %@!", nil), [PFUser currentUser].username];
             
@@ -81,7 +80,7 @@
         // Customize the Log In View Controller
         WinWinLoginViewController *logInViewController = [[WinWinLoginViewController alloc] init];
         logInViewController.delegate = self;
-        logInViewController.facebookPermissions = @[@"friends_about_me"];
+        logInViewController.facebookPermissions = @[@"friends_about_me", @"user_about_me"];
         logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsTwitter | PFLogInFieldsFacebook | PFLogInFieldsSignUpButton | PFLogInFieldsDismissButton;
         
         // Customize the Sign Up View Controller

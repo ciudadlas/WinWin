@@ -30,7 +30,7 @@
     [testObject save];
     */
     
-    //[PFFacebookUtils initializeFacebook];
+    [PFFacebookUtils initializeFacebook];
     [PFTwitterUtils initializeWithConsumerKey:@"LWtYY8F7zUmuzk7HlLeCtg" consumerSecret:@"bj9lIs5flodNaiVrkgnHyCaQQC22QS6IXb5uavHKc"];
 
     
@@ -76,6 +76,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [FBSession.activeSession handleDidBecomeActive];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -178,6 +179,16 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+// Facebook oauth callback
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 @end
