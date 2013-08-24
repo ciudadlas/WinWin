@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		751ED89C17C88C840015F05B /* WinWinLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751ED89B17C88C840015F05B /* WinWinLoginViewController.m */; };
+		751ED8A117C88DBE0015F05B /* WinWinSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751ED8A017C88DBE0015F05B /* WinWinSignUpViewController.m */; };
+		751ED8A517C890A10015F05B /* WinWinHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751ED8A317C890A10015F05B /* WinWinHomeViewController.m */; };
+		751ED8A617C890A10015F05B /* WinWinHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751ED8A417C890A10015F05B /* WinWinHomeViewController.xib */; };
+		751ED8A917C8A4880015F05B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751ED8A817C8A4880015F05B /* FacebookSDK.framework */; };
+		755460FD17C88330009E5BE4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755460FC17C88330009E5BE4 /* Parse.framework */; };
 		758BB44E17C874D7003551EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BB44D17C874D7003551EA /* UIKit.framework */; };
 		758BB45017C874D7003551EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BB44F17C874D7003551EA /* Foundation.framework */; };
 		758BB45217C874D7003551EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BB45117C874D7003551EA /* CoreGraphics.framework */; };
@@ -18,9 +24,27 @@
 		758BB46417C874D7003551EA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758BB46317C874D7003551EA /* Default@2x.png */; };
 		758BB46617C874D7003551EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758BB46517C874D7003551EA /* Default-568h@2x.png */; };
 		758BB46917C874D7003551EA /* WinWin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 758BB46717C874D7003551EA /* WinWin.xcdatamodeld */; };
+		75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */; };
+		75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986917C878DE005FC7BC /* StoreKit.framework */; };
+		75DC986F17C87920005FC7BC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986717C878D8005FC7BC /* Security.framework */; };
+		75DC987017C87920005FC7BC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986517C878D1005FC7BC /* QuartzCore.framework */; };
+		75DC987117C87920005FC7BC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986317C878C9005FC7BC /* MobileCoreServices.framework */; };
+		75DC987217C87920005FC7BC /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986117C878C0005FC7BC /* libz.1.1.3.dylib */; };
+		75DC987317C87920005FC7BC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC985F17C878B7005FC7BC /* CoreLocation.framework */; };
+		75DC987417C87920005FC7BC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC985D17C878A9005FC7BC /* CFNetwork.framework */; };
+		75DC987517C87920005FC7BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC985B17C87895005FC7BC /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		751ED89A17C88C840015F05B /* WinWinLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinLoginViewController.h; sourceTree = "<group>"; };
+		751ED89B17C88C840015F05B /* WinWinLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinWinLoginViewController.m; sourceTree = "<group>"; };
+		751ED89F17C88DBE0015F05B /* WinWinSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinSignUpViewController.h; sourceTree = "<group>"; };
+		751ED8A017C88DBE0015F05B /* WinWinSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinWinSignUpViewController.m; sourceTree = "<group>"; };
+		751ED8A217C890A10015F05B /* WinWinHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinHomeViewController.h; sourceTree = "<group>"; };
+		751ED8A317C890A10015F05B /* WinWinHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinWinHomeViewController.m; sourceTree = "<group>"; };
+		751ED8A417C890A10015F05B /* WinWinHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinWinHomeViewController.xib; sourceTree = "<group>"; };
+		751ED8A817C8A4880015F05B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = WinWin/FacebookSDK.framework; sourceTree = "<group>"; };
+		755460FC17C88330009E5BE4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = WinWin/Parse.framework; sourceTree = "<group>"; };
 		758BB44A17C874D7003551EA /* WinWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WinWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758BB44D17C874D7003551EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		758BB44F17C874D7003551EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,6 +60,15 @@
 		758BB46317C874D7003551EA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		758BB46517C874D7003551EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		758BB46817C874D7003551EA /* WinWin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WinWin.xcdatamodel; sourceTree = "<group>"; };
+		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		75DC986117C878C0005FC7BC /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		75DC986317C878C9005FC7BC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		75DC986517C878D1005FC7BC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		75DC986717C878D8005FC7BC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		75DC986917C878DE005FC7BC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,16 +76,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */,
+				75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */,
+				75DC986F17C87920005FC7BC /* Security.framework in Frameworks */,
+				75DC987017C87920005FC7BC /* QuartzCore.framework in Frameworks */,
+				75DC987117C87920005FC7BC /* MobileCoreServices.framework in Frameworks */,
+				75DC987217C87920005FC7BC /* libz.1.1.3.dylib in Frameworks */,
+				75DC987317C87920005FC7BC /* CoreLocation.framework in Frameworks */,
+				75DC987417C87920005FC7BC /* CFNetwork.framework in Frameworks */,
+				75DC987517C87920005FC7BC /* AudioToolbox.framework in Frameworks */,
+				758BB45217C874D7003551EA /* CoreGraphics.framework in Frameworks */,
 				758BB44E17C874D7003551EA /* UIKit.framework in Frameworks */,
 				758BB45017C874D7003551EA /* Foundation.framework in Frameworks */,
-				758BB45217C874D7003551EA /* CoreGraphics.framework in Frameworks */,
 				758BB45417C874D7003551EA /* CoreData.framework in Frameworks */,
+				755460FD17C88330009E5BE4 /* Parse.framework in Frameworks */,
+				751ED8A917C8A4880015F05B /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		751ED89D17C88D430015F05B /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				751ED89A17C88C840015F05B /* WinWinLoginViewController.h */,
+				751ED89B17C88C840015F05B /* WinWinLoginViewController.m */,
+			);
+			name = LoginViewController;
+			sourceTree = "<group>";
+		};
+		751ED89E17C88D590015F05B /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				751ED89F17C88DBE0015F05B /* WinWinSignUpViewController.h */,
+				751ED8A017C88DBE0015F05B /* WinWinSignUpViewController.m */,
+			);
+			name = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		751ED8A717C891A00015F05B /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				751ED8A217C890A10015F05B /* WinWinHomeViewController.h */,
+				751ED8A317C890A10015F05B /* WinWinHomeViewController.m */,
+				751ED8A417C890A10015F05B /* WinWinHomeViewController.xib */,
+			);
+			name = HomeViewController;
+			sourceTree = "<group>";
+		};
 		758BB44117C874D7003551EA = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +145,17 @@
 		758BB44C17C874D7003551EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				751ED8A817C8A4880015F05B /* FacebookSDK.framework */,
+				755460FC17C88330009E5BE4 /* Parse.framework */,
+				75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */,
+				75DC986917C878DE005FC7BC /* StoreKit.framework */,
+				75DC986717C878D8005FC7BC /* Security.framework */,
+				75DC986517C878D1005FC7BC /* QuartzCore.framework */,
+				75DC986317C878C9005FC7BC /* MobileCoreServices.framework */,
+				75DC986117C878C0005FC7BC /* libz.1.1.3.dylib */,
+				75DC985F17C878B7005FC7BC /* CoreLocation.framework */,
+				75DC985D17C878A9005FC7BC /* CFNetwork.framework */,
+				75DC985B17C87895005FC7BC /* AudioToolbox.framework */,
 				758BB44D17C874D7003551EA /* UIKit.framework */,
 				758BB44F17C874D7003551EA /* Foundation.framework */,
 				758BB45117C874D7003551EA /* CoreGraphics.framework */,
@@ -84,6 +167,9 @@
 		758BB45517C874D7003551EA /* WinWin */ = {
 			isa = PBXGroup;
 			children = (
+				751ED89E17C88D590015F05B /* SignUpViewController */,
+				751ED89D17C88D430015F05B /* LoginViewController */,
+				751ED8A717C891A00015F05B /* HomeViewController */,
 				758BB45E17C874D7003551EA /* AppDelegate.h */,
 				758BB45F17C874D7003551EA /* AppDelegate.m */,
 				758BB46717C874D7003551EA /* WinWin.xcdatamodeld */,
@@ -161,6 +247,7 @@
 				758BB46217C874D7003551EA /* Default.png in Resources */,
 				758BB46417C874D7003551EA /* Default@2x.png in Resources */,
 				758BB46617C874D7003551EA /* Default-568h@2x.png in Resources */,
+				751ED8A617C890A10015F05B /* WinWinHomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +261,9 @@
 				758BB45C17C874D7003551EA /* main.m in Sources */,
 				758BB46017C874D7003551EA /* AppDelegate.m in Sources */,
 				758BB46917C874D7003551EA /* WinWin.xcdatamodeld in Sources */,
+				751ED89C17C88C840015F05B /* WinWinLoginViewController.m in Sources */,
+				751ED8A117C88DBE0015F05B /* WinWinSignUpViewController.m in Sources */,
+				751ED8A517C890A10015F05B /* WinWinHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +340,11 @@
 		758BB46D17C874D7003551EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/WinWin\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WinWin/WinWin-Prefix.pch";
 				INFOPLIST_FILE = "WinWin/WinWin-Info.plist";
@@ -262,6 +357,11 @@
 		758BB46E17C874D7003551EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/WinWin\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WinWin/WinWin-Prefix.pch";
 				INFOPLIST_FILE = "WinWin/WinWin-Info.plist";
@@ -290,6 +390,7 @@
 				758BB46E17C874D7003551EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
