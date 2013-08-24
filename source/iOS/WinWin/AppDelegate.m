@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+#import "WinWinHomeViewController.h"
 
 @implementation AppDelegate
 
@@ -18,6 +20,38 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"AQsFyNyhNcS88YHvdSM2xNudh8ZZTd2U2W8PPHvf"
+                  clientKey:@"sP3pP0tJ75OaBMC3EU85PIXfhy2a23QrSqcSRlVp"];
+    
+    /* Parse Test Code
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    */
+    
+    [PFFacebookUtils initializeFacebook];
+    [PFTwitterUtils initializeWithConsumerKey:@"LWtYY8F7zUmuzk7HlLeCtg" consumerSecret:@"bj9lIs5flodNaiVrkgnHyCaQQC22QS6IXb5uavHKc"];
+
+    
+    //[PFUser enableAutomaticUser];
+    
+    PFACL *defaultACL = [PFACL ACL];
+    
+    // If you would like all objects to be private by default, remove this line.
+    [defaultACL setPublicReadAccess:YES];
+    
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    
+    WinWinHomeViewController *homeVC = [[WinWinHomeViewController alloc] init];
+    self.window.rootViewController = homeVC;
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -42,6 +76,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [FBSession.activeSession handleDidBecomeActive];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -144,6 +179,16 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+// Facebook oauth callback
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 @end
