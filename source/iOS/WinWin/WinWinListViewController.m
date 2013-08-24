@@ -8,6 +8,8 @@
 #import "WinWinListViewController.h"
 #import "WinWinDetailViewController.h"
 
+#define AddWinViewHeight 160
+
 @interface WinWinListViewController ()
 
 @property (assign) BOOL addingNew;
@@ -46,13 +48,11 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
+    AddWinView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"AddWinView" owner:self options:nil] lastObject];
+    headerView.frame = CGRectMake(0, 0, 320, AddWinViewHeight);
+    headerView.delegate = self;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.tableHeaderView = headerView;
 }
 
 - (void)viewDidUnload
@@ -216,6 +216,7 @@
  }
  */
 
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -226,5 +227,22 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - AddWin delegate methods
+
+- (void)tappedAddWin {
+    [UIView beginAnimations:nil context:NULL];
+    self.tableView.tableHeaderView.frame = self.view.bounds;
+    self.tableView.tableHeaderView = self.tableView.tableHeaderView;
+    [UIView commitAnimations];
+}
+
+- (void)completedAddWin:(PFObject *)winWin {
+    [UIView beginAnimations:nil context:NULL];
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, 320, AddWinViewHeight);
+    self.tableView.tableHeaderView = self.tableView.tableHeaderView;
+    [UIView commitAnimations];
+    
+    
+}
 
 @end
