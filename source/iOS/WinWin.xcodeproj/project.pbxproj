@@ -214,11 +214,8 @@
 				751ED89E17C88D590015F05B /* SignUpViewController */,
 				751ED89D17C88D430015F05B /* LoginViewController */,
 				751ED8A717C891A00015F05B /* HomeViewController */,
-				EFFE879B17C95091002F9402 /* WinWinListViewController.h */,
-				EFFE879C17C95091002F9402 /* WinWinListViewController.m */,
-				EFFE879E17C955E8002F9402 /* WinWinDetailViewController.h */,
-				EFFE879F17C955E8002F9402 /* WinWinDetailViewController.m */,
-				EFFE87A017C955E8002F9402 /* WinWinDetailViewController.xib */,
+				EF47739E17C95C1100FAB1F2 /* ListViewController */,
+				EF47739F17C95C2600FAB1F2 /* DetailViewController */,
 				758BB45E17C874D7003551EA /* AppDelegate.h */,
 				758BB45F17C874D7003551EA /* AppDelegate.m */,
 				758BB46717C874D7003551EA /* WinWin.xcdatamodeld */,
@@ -261,6 +258,25 @@
 				75924A8117C9190B00010F9A /* PayPalMobile */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		EF47739E17C95C1100FAB1F2 /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE879B17C95091002F9402 /* WinWinListViewController.h */,
+				EFFE879C17C95091002F9402 /* WinWinListViewController.m */,
+			);
+			name = ListViewController;
+			sourceTree = "<group>";
+		};
+		EF47739F17C95C2600FAB1F2 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EFFE879E17C955E8002F9402 /* WinWinDetailViewController.h */,
+				EFFE879F17C955E8002F9402 /* WinWinDetailViewController.m */,
+				EFFE87A017C955E8002F9402 /* WinWinDetailViewController.xib */,
+			);
+			name = DetailViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
