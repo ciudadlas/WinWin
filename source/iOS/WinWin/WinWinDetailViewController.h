@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) PFObject *winWin;
 
+- (IBAction)imInButtonTap:(id)sender;
+
 @end

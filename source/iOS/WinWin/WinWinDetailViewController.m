@@ -7,6 +7,7 @@
 //
 
 #import "WinWinDetailViewController.h"
+#import "WinWinPayPalWebViewController.h"
 
 @interface WinWinDetailViewController ()
 
@@ -37,6 +38,22 @@
 
 - (void)setWinWin:(PFObject *)winWin {
     self.title = [winWin objectForKey:@"name"];
+}
+
+- (IBAction)imInButtonTap:(id)sender
+{
+    WinWinPayPalWebViewController *webVC = [[WinWinPayPalWebViewController alloc] init];
+    
+    NSString *token = @"EC%2d85P9146718870862H";
+    NSString *urlString = [NSString stringWithFormat:@"https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=%@&useraction=commit", token];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
+    
+    [self presentViewController:webVC animated:YES completion:NULL];
+    [webVC.webView loadRequest:requestURL];
+
 }
 
 @end
