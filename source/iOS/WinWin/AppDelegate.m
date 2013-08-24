@@ -30,6 +30,10 @@
     [testObject save];
     */
     
+    //[PFFacebookUtils initializeFacebook];
+    [PFTwitterUtils initializeWithConsumerKey:@"LWtYY8F7zUmuzk7HlLeCtg" consumerSecret:@"bj9lIs5flodNaiVrkgnHyCaQQC22QS6IXb5uavHKc"];
+
+    
     //[PFUser enableAutomaticUser];
     
     PFACL *defaultACL = [PFACL ACL];
