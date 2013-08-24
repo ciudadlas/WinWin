@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		755460FD17C88330009E5BE4 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755460FC17C88330009E5BE4 /* Parse.framework */; };
 		758BB44E17C874D7003551EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BB44D17C874D7003551EA /* UIKit.framework */; };
 		758BB45017C874D7003551EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BB44F17C874D7003551EA /* Foundation.framework */; };
 		758BB45217C874D7003551EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758BB45117C874D7003551EA /* CoreGraphics.framework */; };
@@ -18,7 +19,6 @@
 		758BB46417C874D7003551EA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758BB46317C874D7003551EA /* Default@2x.png */; };
 		758BB46617C874D7003551EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758BB46517C874D7003551EA /* Default-568h@2x.png */; };
 		758BB46917C874D7003551EA /* WinWin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 758BB46717C874D7003551EA /* WinWin.xcdatamodeld */; };
-		75DC985A17C8785E005FC7BC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC985917C8785E005FC7BC /* Parse.framework */; };
 		75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */; };
 		75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986917C878DE005FC7BC /* StoreKit.framework */; };
 		75DC986F17C87920005FC7BC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986717C878D8005FC7BC /* Security.framework */; };
@@ -31,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		755460FC17C88330009E5BE4 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = WinWin/Parse.framework; sourceTree = "<group>"; };
 		758BB44A17C874D7003551EA /* WinWin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WinWin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758BB44D17C874D7003551EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		758BB44F17C874D7003551EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,7 +47,6 @@
 		758BB46317C874D7003551EA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		758BB46517C874D7003551EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		758BB46817C874D7003551EA /* WinWin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WinWin.xcdatamodel; sourceTree = "<group>"; };
-		75DC985917C8785E005FC7BC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -76,7 +76,7 @@
 				758BB44E17C874D7003551EA /* UIKit.framework in Frameworks */,
 				758BB45017C874D7003551EA /* Foundation.framework in Frameworks */,
 				758BB45417C874D7003551EA /* CoreData.framework in Frameworks */,
-				75DC985A17C8785E005FC7BC /* Parse.framework in Frameworks */,
+				755460FD17C88330009E5BE4 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +103,7 @@
 		758BB44C17C874D7003551EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				755460FC17C88330009E5BE4 /* Parse.framework */,
 				75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */,
 				75DC986917C878DE005FC7BC /* StoreKit.framework */,
 				75DC986717C878D8005FC7BC /* Security.framework */,
@@ -112,7 +113,6 @@
 				75DC985F17C878B7005FC7BC /* CoreLocation.framework */,
 				75DC985D17C878A9005FC7BC /* CFNetwork.framework */,
 				75DC985B17C87895005FC7BC /* AudioToolbox.framework */,
-				75DC985917C8785E005FC7BC /* Parse.framework */,
 				758BB44D17C874D7003551EA /* UIKit.framework */,
 				758BB44F17C874D7003551EA /* Foundation.framework */,
 				758BB45117C874D7003551EA /* CoreGraphics.framework */,
@@ -293,6 +293,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/WinWin\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WinWin/WinWin-Prefix.pch";
@@ -309,6 +310,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/WinWin\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WinWin/WinWin-Prefix.pch";
