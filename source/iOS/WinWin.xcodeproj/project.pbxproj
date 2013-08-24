@@ -201,6 +201,7 @@
 				751ED89E17C88D590015F05B /* SignUpViewController */,
 				751ED89D17C88D430015F05B /* LoginViewController */,
 				751ED8A717C891A00015F05B /* HomeViewController */,
+				75924A9517C91DB000010F9A /* PayPalViewController */,
 				758BB45E17C874D7003551EA /* AppDelegate.h */,
 				758BB45F17C874D7003551EA /* AppDelegate.m */,
 				758BB46717C874D7003551EA /* WinWin.xcdatamodeld */,
@@ -240,6 +241,13 @@
 				75924A8117C9190B00010F9A /* PayPalMobile */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		75924A9517C91DB000010F9A /* PayPalViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PayPalViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

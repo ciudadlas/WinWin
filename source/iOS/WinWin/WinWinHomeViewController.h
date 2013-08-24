@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
+#import "PayPalMobile.h"
 
-@interface WinWinHomeViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface WinWinHomeViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, PayPalPaymentDelegate>
 
 @property (nonatomic, strong) IBOutlet UILabel *welcomeLabel;
 
 - (IBAction)logOutButtonTapAction:(id)sender;
+- (IBAction)paypalButtonTapAction:(id)sender;
 
 @end
