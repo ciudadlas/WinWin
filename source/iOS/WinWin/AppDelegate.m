@@ -21,8 +21,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    [Parse setApplicationId:@"AQsFyNyhNcS88YHvdSM2xNudh8ZZTd2U2W8PPHvf"
-                  clientKey:@"sP3pP0tJ75OaBMC3EU85PIXfhy2a23QrSqcSRlVp"];
+    [Parse setApplicationId:PARSE_APP_ID
+                  clientKey:PARSE_CLIENT_KEY];
     
     /* Parse Test Code
     PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
@@ -31,7 +31,8 @@
     */
     
     [PFFacebookUtils initializeFacebook];
-    [PFTwitterUtils initializeWithConsumerKey:@"LWtYY8F7zUmuzk7HlLeCtg" consumerSecret:@"bj9lIs5flodNaiVrkgnHyCaQQC22QS6IXb5uavHKc"];
+    [PFTwitterUtils initializeWithConsumerKey:TWITTER_CONSUMER_KEY
+                               consumerSecret:TWITTER_CONSUMER_SECRET];
 
     
     //[PFUser enableAutomaticUser];

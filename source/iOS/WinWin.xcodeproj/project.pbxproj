@@ -77,6 +77,7 @@
 		75924A8F17C919E000010F9A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		75924A9117C919E800010F9A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		75924A9317C91A2900010F9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		75924A9617C921B800010F9A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -201,10 +202,10 @@
 				751ED89E17C88D590015F05B /* SignUpViewController */,
 				751ED89D17C88D430015F05B /* LoginViewController */,
 				751ED8A717C891A00015F05B /* HomeViewController */,
-				75924A9517C91DB000010F9A /* PayPalViewController */,
 				758BB45E17C874D7003551EA /* AppDelegate.h */,
 				758BB45F17C874D7003551EA /* AppDelegate.m */,
 				758BB46717C874D7003551EA /* WinWin.xcdatamodeld */,
+				75924A9617C921B800010F9A /* Constants.h */,
 				758BB45617C874D7003551EA /* Supporting Files */,
 			);
 			path = WinWin;
@@ -241,13 +242,6 @@
 				75924A8117C9190B00010F9A /* PayPalMobile */,
 			);
 			name = Libraries;
-			sourceTree = "<group>";
-		};
-		75924A9517C91DB000010F9A /* PayPalViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = PayPalViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
