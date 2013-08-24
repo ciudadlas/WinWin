@@ -1,0 +1,74 @@
+<html>
+	<head>
+	<title>Ben Test</title>
+    <script src="/js/underscore-1.5.1.js"></script>
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script src="/js/parse-1.2.9.js"></script>
+    <script src="/js/parse-1.2.9.js"></script>
+	</head>
+	<body>
+		<div id="nav">
+
+		</div>
+		<div id="users">
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+
+var appID = 'AQsFyNyhNcS88YHvdSM2xNudh8ZZTd2U2W8PPHvf';
+var jsKey = 'NC3JMJjrTdvfuHUup0QKTlobkXillVpQoUMzhnLA';
+var masterKey = 'dCxgvw2as9frnEz4AUi6pnIgVtS5k2IiJURsZQlU';
+var BenTest;
+var User;
+
+
+jQuery(document).ready(function($){
+	initializeParse();
+	// benTestParse();
+	getUsers();
+});
+
+function initializeParse () {
+	Parse.initialize(appID, jsKey);
+	BenTest = Parse.Object.extend("BenTest");
+	User = Parse.Object.extend("User");
+}
+
+function benTestParse() {
+	var benTest = new BenTest();
+
+	benTest.set("first_name", "Benjamin");
+	benTest.set("last_name", "Aiken");
+	benTest.set("gender", "Male");
+	benTest.set("age", 31);
+
+	benTest.save(null, {
+		success: function(benTest) {
+			alert("Object created");
+		},
+		error: function(benTest, error) {
+			alert("Object creation failed: " + error.description);
+		}
+	});
+}
+
+function getUsers() {
+	var query = new Parse.Query(User);
+
+	query.find({
+		success: function(results) {
+			var users = "";
+			for(var r = 0; r < results.length; r++) {
+				var result = results[r];
+				users += result.get("username") + " " + result.get("email") + "<br/>";
+			}
+			$('#users').append(users);
+		},
+		error: function(results, error) {
+			alert("Failed to get users: " + error.description);
+		}
+	});
+}
+</script>
