@@ -23,6 +23,12 @@
     [Parse setApplicationId:@"AQsFyNyhNcS88YHvdSM2xNudh8ZZTd2U2W8PPHvf"
                   clientKey:@"sP3pP0tJ75OaBMC3EU85PIXfhy2a23QrSqcSRlVp"];
     
+    /* Parse Test Code
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    */
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
