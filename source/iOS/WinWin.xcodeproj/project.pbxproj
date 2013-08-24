@@ -33,6 +33,15 @@
 		75924A9417C91A2900010F9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75924A9317C91A2900010F9A /* OpenGLES.framework */; };
 		75924AA717C9717400010F9A /* WinWinPayPalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AA517C9717400010F9A /* WinWinPayPalWebViewController.m */; };
 		75924AA817C9717400010F9A /* WinWinPayPalWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75924AA617C9717400010F9A /* WinWinPayPalWebViewController.xib */; };
+		75924ABD17C97C4F00010F9A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AAB17C97C4F00010F9A /* AFHTTPClient.m */; };
+		75924ABE17C97C4F00010F9A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AAD17C97C4F00010F9A /* AFHTTPRequestOperation.m */; };
+		75924ABF17C97C4F00010F9A /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AAF17C97C4F00010F9A /* AFImageRequestOperation.m */; };
+		75924AC017C97C4F00010F9A /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB117C97C4F00010F9A /* AFJSONRequestOperation.m */; };
+		75924AC117C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB317C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m */; };
+		75924AC217C97C4F00010F9A /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB617C97C4F00010F9A /* AFPropertyListRequestOperation.m */; };
+		75924AC317C97C4F00010F9A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB817C97C4F00010F9A /* AFURLConnectionOperation.m */; };
+		75924AC417C97C4F00010F9A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924ABA17C97C4F00010F9A /* AFXMLRequestOperation.m */; };
+		75924AC517C97C4F00010F9A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924ABC17C97C4F00010F9A /* UIImageView+AFNetworking.m */; };
 		75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */; };
 		75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986917C878DE005FC7BC /* StoreKit.framework */; };
 		75DC986F17C87920005FC7BC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986717C878D8005FC7BC /* Security.framework */; };
@@ -88,6 +97,25 @@
 		75924AA417C9717400010F9A /* WinWinPayPalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinPayPalWebViewController.h; sourceTree = "<group>"; };
 		75924AA517C9717400010F9A /* WinWinPayPalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinWinPayPalWebViewController.m; sourceTree = "<group>"; };
 		75924AA617C9717400010F9A /* WinWinPayPalWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinWinPayPalWebViewController.xib; sourceTree = "<group>"; };
+		75924AAA17C97C4F00010F9A /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		75924AAB17C97C4F00010F9A /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		75924AAC17C97C4F00010F9A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		75924AAD17C97C4F00010F9A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		75924AAE17C97C4F00010F9A /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		75924AAF17C97C4F00010F9A /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		75924AB017C97C4F00010F9A /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		75924AB117C97C4F00010F9A /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		75924AB217C97C4F00010F9A /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		75924AB317C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		75924AB417C97C4F00010F9A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		75924AB517C97C4F00010F9A /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		75924AB617C97C4F00010F9A /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		75924AB717C97C4F00010F9A /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		75924AB817C97C4F00010F9A /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		75924AB917C97C4F00010F9A /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		75924ABA17C97C4F00010F9A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		75924ABB17C97C4F00010F9A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		75924ABC17C97C4F00010F9A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -261,6 +289,7 @@
 		75924A8717C9191000010F9A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				75924AA917C97C4F00010F9A /* AFNetworking */,
 				75924A8117C9190B00010F9A /* PayPalMobile */,
 			);
 			name = Libraries;
@@ -274,6 +303,32 @@
 				75924AA617C9717400010F9A /* WinWinPayPalWebViewController.xib */,
 			);
 			name = UIWebViewController;
+			sourceTree = "<group>";
+		};
+		75924AA917C97C4F00010F9A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				75924AAA17C97C4F00010F9A /* AFHTTPClient.h */,
+				75924AAB17C97C4F00010F9A /* AFHTTPClient.m */,
+				75924AAC17C97C4F00010F9A /* AFHTTPRequestOperation.h */,
+				75924AAD17C97C4F00010F9A /* AFHTTPRequestOperation.m */,
+				75924AAE17C97C4F00010F9A /* AFImageRequestOperation.h */,
+				75924AAF17C97C4F00010F9A /* AFImageRequestOperation.m */,
+				75924AB017C97C4F00010F9A /* AFJSONRequestOperation.h */,
+				75924AB117C97C4F00010F9A /* AFJSONRequestOperation.m */,
+				75924AB217C97C4F00010F9A /* AFNetworkActivityIndicatorManager.h */,
+				75924AB317C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m */,
+				75924AB417C97C4F00010F9A /* AFNetworking.h */,
+				75924AB517C97C4F00010F9A /* AFPropertyListRequestOperation.h */,
+				75924AB617C97C4F00010F9A /* AFPropertyListRequestOperation.m */,
+				75924AB717C97C4F00010F9A /* AFURLConnectionOperation.h */,
+				75924AB817C97C4F00010F9A /* AFURLConnectionOperation.m */,
+				75924AB917C97C4F00010F9A /* AFXMLRequestOperation.h */,
+				75924ABA17C97C4F00010F9A /* AFXMLRequestOperation.m */,
+				75924ABB17C97C4F00010F9A /* UIImageView+AFNetworking.h */,
+				75924ABC17C97C4F00010F9A /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		EF47739E17C95C1100FAB1F2 /* ListViewController */ = {
@@ -374,6 +429,15 @@
 				751ED8A117C88DBE0015F05B /* WinWinSignUpViewController.m in Sources */,
 				751ED8A517C890A10015F05B /* WinWinHomeViewController.m in Sources */,
 				75924AA717C9717400010F9A /* WinWinPayPalWebViewController.m in Sources */,
+				75924ABD17C97C4F00010F9A /* AFHTTPClient.m in Sources */,
+				75924ABE17C97C4F00010F9A /* AFHTTPRequestOperation.m in Sources */,
+				75924ABF17C97C4F00010F9A /* AFImageRequestOperation.m in Sources */,
+				75924AC017C97C4F00010F9A /* AFJSONRequestOperation.m in Sources */,
+				75924AC117C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				75924AC217C97C4F00010F9A /* AFPropertyListRequestOperation.m in Sources */,
+				75924AC317C97C4F00010F9A /* AFURLConnectionOperation.m in Sources */,
+				75924AC417C97C4F00010F9A /* AFXMLRequestOperation.m in Sources */,
+				75924AC517C97C4F00010F9A /* UIImageView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

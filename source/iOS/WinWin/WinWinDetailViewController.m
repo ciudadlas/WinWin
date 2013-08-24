@@ -8,6 +8,7 @@
 
 #import "WinWinDetailViewController.h"
 #import "WinWinPayPalWebViewController.h"
+#import "AFJSONRequestOperation.h"
 
 @interface WinWinDetailViewController ()
 
@@ -42,18 +43,31 @@
 
 - (IBAction)imInButtonTap:(id)sender
 {
-    WinWinPayPalWebViewController *webVC = [[WinWinPayPalWebViewController alloc] init];
     
-    NSString *token = @"EC%2d85P9146718870862H";
-    NSString *urlString = [NSString stringWithFormat:@"https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=%@&useraction=commit", token];
+    NSURL *url = [NSURL URLWithString:@"http://httpbin.org/ip"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    NSURL *url = [NSURL URLWithString:urlString];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSLog(@"token: %@", [JSON valueForKeyPath:@"token"]);
+        //NSString *token = @"EC%2d85P9146718870862H";
+        
+        NSString *token = [JSON valueForKeyPath:@"token"];
+        
+        WinWinPayPalWebViewController *webVC = [[WinWinPayPalWebViewController alloc] init];
+        
+        NSString *urlString = [NSString stringWithFormat:@"https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=%@&useraction=commit", token];
+        
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
+        
+        [self presentViewController:webVC animated:YES completion:NULL];
+        [webVC.webView loadRequest:requestURL];
+        
+    } failure:nil];
     
-    NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
-    
-    [self presentViewController:webVC animated:YES completion:NULL];
-    [webVC.webView loadRequest:requestURL];
-
+    [operation start];
 }
 
 @end
