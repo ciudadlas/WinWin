@@ -29,6 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.navigationItem.title = @"";
+    
     self.descriptionCopy.editable = NO;
     self.descriptionCopy.backgroundColor = [UIColor clearColor];
     
