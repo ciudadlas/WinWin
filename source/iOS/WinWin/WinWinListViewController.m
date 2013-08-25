@@ -37,7 +37,7 @@
         self.pullToRefreshEnabled = YES;
         
         // Whether the built-in pagination is enabled
-        self.paginationEnabled = YES;
+        self.paginationEnabled = NO;
         
         // The number of objects to show per page
         self.objectsPerPage = 10;
@@ -233,8 +233,9 @@
     cell.textLabel.text = [object objectForKey:@"name"];
     
     PFObject *creator = [object objectForKey:@"creator"];
-    [creator fetch];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"By @%@",[creator objectForKey:@"username"]];
+    [creator fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"By @%@",[creator objectForKey:@"username"]];
+    }];
 
     return cell;
 }
