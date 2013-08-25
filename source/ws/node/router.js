@@ -14,4 +14,9 @@ exports.route = function(pathname) {
 	else if (pathname == '/capturePayment') {
 		paypal.capturePayment();
 	}
+	else if (pathname == '/getToken') {
+		var resp = paypal.getToken();
+		console.log("Response: " + resp);
+		return resp;
+	}
 }

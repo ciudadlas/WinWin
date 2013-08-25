@@ -23,8 +23,18 @@ app.get('/authenticate', function(req, res) {
 });
 
 app.get('/getToken', function(req, res) {
-	paypal.getToken();
-	res.send('Response');
+	var response = paypal.getToken(function(resp) {
+		res.writeHead(200, {"Content-Type": "application/json"});
+		res.write(resp);
+		res.end();
+	});
+	// res.send('Response: ' + response);
+});
+
+app.get('/doEC', function(req, res) {
+	var myObj = new Object();
+	myObj.data = "Hello There!";
+	res.send(myObj);
 });
 
 app.listen(8124);

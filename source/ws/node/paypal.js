@@ -1,5 +1,6 @@
 var paypal_sdk = require('paypal-rest-sdk');
 var jQ = require('jquery');
+var async = require('async');
 
 function configure() {
 	paypal_sdk.configure({
@@ -9,30 +10,55 @@ function configure() {
 	});
 }
 
-exports.getToken = function() {
+exports.getToken = function(callback) {
 	var url = "https://api-3t.sandbox.paypal.com/nvp";
 	var user = "karatekinserdar-facilitator_api1.gmail.com";
 	var pwd = "1377356831";
 	var signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AF.pqE60zi4L8.5DxdUYbLx.iE..";
-	var amount = "5.00";
+	var amount = "1.00";
 	var currency = "USD";
-	var urlFail = "";
-	var urlSuccess = "";
+	// var urlFail = "http%3a%2f%2flocalhost%3a4555%2fGetECDetails.aspx";
+	var urlFail = "http://winwin.jit.su/doECFail"
+	var urlSuccess = "http://winwin.jit.su/doEC";
 
-	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=SETEXPRESSCHECKOUT&PAYMENTREQUEST_0_AMT=" + amount + "&RETURNURL=http%3a%2f%2flocalhost%3a4555%2fGetECDetails.aspx&CANCELURL=http%3a%2f%2flocalhost%3a4555%2fGetECDetails.aspx&PAYMENTREQUEST_0_CURRENCYCODE=" + currency + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&L_BILLINGTYPE0=MerchantInitiatedBilling&L_PAYMENTTYPE0=Any&ALLOWNOTE=0";
+	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=SETEXPRESSCHECKOUT&PAYMENTREQUEST_0_AMT=" + amount + "&RETURNURL=" + urlSuccess + "&CANCELURL=" + urlFail + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&L_BILLINGTYPE0=MerchantInitiatedBilling&L_PAYMENTTYPE0=Any&ALLOWNOTE=0";
 
-	console.log("Hitting " + url + " with payload: " + payload);
+	// console.log("Hitting " + url + " with payload: " + payload);
+
+	var resp = "";
 
 	jQ.ajax({
 		type: "POST",
 		url: url,
 		data: payload,
-		success: function(response, data) {
+		aysnc: false,
+		success: function(response) {
 			var token = response.substring(6, response.indexOf("&"));
+			
+			var jsonResponse = new Object();
+			jsonResponse.token = token;
 
 			console.log("Success: " + response + " - Token: " + token);
+
+			resp = JSON.stringify(jsonResponse);
+			console.log("Response: " + resp + " URL: " + url);
+
+			callback(resp);
 		}
 	});
+	
+	return resp;
+}
+
+exports.doEC = function() {
+	var url = "https://api-3t.sandbox.paypal.com/nvp";
+	var user = "karatekinserdar-facilitator_api1.gmail.com";
+	var pwd = "1377356831";
+	var signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AF.pqE60zi4L8.5DxdUYbLx.iE..";
+	var amount = "1.00";
+	var currency = "USD";
+	
+	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=DoExpressCheckoutPayment&TOKEN=" + token + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&PAYERID=HXE69D5N7AQBU&PAYMENTREQUEST_0_AMT=" + amount + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency;
 }
 
 exports.authenticate = function() {
