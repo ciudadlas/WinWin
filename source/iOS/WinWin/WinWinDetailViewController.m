@@ -116,10 +116,22 @@
         }
     }];
         
-    // Figure out how many hit $
+    // Figure out how many hit $ and how many miss $ so far for this winwin
     
-    // Figure out how many miss $
-
+    // Figure out how many total people have endorsed this WinWin
+    PFQuery *query3 = [PFQuery queryWithClassName:@"WinWinData"];
+    [query3 whereKey:@"winwin" equalTo:self.winWin];
+    
+    [query3 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            NSLog(@"The getFirstObject request failed.");
+        } else {
+            // The find succeeded.
+            self.hitDollars.text = [NSString stringWithFormat:@"$%@", [object objectForKey:@"hits"]];
+            self.missDollars.text = [NSString stringWithFormat:@"$%@", [object objectForKey:@"misses"]];
+        }
+    }];
+    
 
 }
 
