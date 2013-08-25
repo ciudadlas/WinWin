@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WinWinPayPalWebViewController : UIViewController
+@protocol WinWinPayPalWebViewControllerDelegate;
+
+@interface WinWinPayPalWebViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) id <WinWinPayPalWebViewControllerDelegate> delegate;
+
+@end
+
+
+@protocol WinWinPayPalWebViewControllerDelegate <NSObject>
+
+- (void)didAuthenticate;
 
 @end
