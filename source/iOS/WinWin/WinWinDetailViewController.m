@@ -29,6 +29,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.topView.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0.31 green:0.72 blue:0.66 alpha:1.0];
+    
+    self.descriptionCopy.editable = NO;
+    self.descriptionCopy.backgroundColor = [UIColor clearColor];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated

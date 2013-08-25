@@ -21,6 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *creationDate;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionCopy;
 
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIView *smallRectangle1;
+@property (weak, nonatomic) IBOutlet UIView *smallRectangle2;
+@property (weak, nonatomic) IBOutlet UIView *smallRectangle3;
+
 - (IBAction)imInButtonTap:(id)sender;
 
 @end
