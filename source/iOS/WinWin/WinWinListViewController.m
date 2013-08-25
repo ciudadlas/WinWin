@@ -57,6 +57,8 @@
     }
     
     [self registerForKeyboardNotifications];
+    
+    self.title = @"Home";
 }
 
 - (void)viewDidUnload
