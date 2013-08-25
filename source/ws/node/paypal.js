@@ -40,50 +40,46 @@ exports.getToken = function(callback, req) {
 		data: payload,
 		aysnc: false,
 		success: function(response) {
-			var token = response.substring(6, response.indexOf("&"));
+			var token = response.substring(6, response.indexOf("&")).replace("%2d", "-");
 			userId = req.param("userId");
 			
 			var jsonResponse = new Object();
 			jsonResponse.token = token;
 			jsonResponse.userId = userId;
 
-			console.log("Success: " + response + " - Token: " + token);
-			console.log("Request: " + userId);
+			// console.log("Success: " + response + " - Token: " + token);
+			// console.log("Request: " + userId);
 
 			resp = JSON.stringify(jsonResponse);
-			console.log("Response: " + resp + " URL: " + url);
+			// console.log("Response: " + resp + " URL: " + url);
 	
 			var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
 			var query = new Parse.Query(UserPaypalInfo);
-			query.get(userId, {
+			query.equalTo("user_id", userId);
+			query.first({
 				success: function(user) {
-					console.log("User: " + user.get("username"));
-					user.set("additional", "testdata");
-					user.save(null, {
-						success: function(user) {
-							console.log("Updated user");
-						},
-						error: function(user, error) {
+					if (user != undefined) {
+						user.set("token", token);
+						user.save(null, {
+							success: function(user) {
+								console.log("Updated user");
+							},
+							error: function(user, error) {
 
-						}
-					});
+							}
+						});
+					}
+					else {
+						createUser(UserPaypalInfo, userId, token);
+					}
+					// console.log("User: " + user.get("username"));
 				},
-				error: function(user, error) {
+				error: function(error) {
 					console.error(error.message);
 
-					var newUser = new UserPaypalInfo();
-					newUser.set("user_id", userId);
-					newUser.set("token", token);
-					newUser.save(null, {
-						success: function(newUser) {
-							console.log("User created");
-						},
-						error: function(newUser, error) {
-							console.error(error.message);
-						}
-					});
+					createUser(UserPaypalInfo, userId, token);
 				}
-			})
+			});
 			// query.equalTo("objectId", userId);
 			// query.first({
 			// 	success: function(user) {
@@ -106,6 +102,28 @@ exports.getToken = function(callback, req) {
 	return resp;
 }
 
+function createUser(UserPaypalInfo, userId, token, payerId) {
+	var newUser = new UserPaypalInfo();
+	newUser.set("user_id", userId);
+	newUser.set("token", token);
+	if (payerId != null && payerId != undefined) {
+		newUser.set("payerId", payerId);
+	}
+	newUser.save(null, {
+		success: function(newUser) {
+			console.log("User created");
+		},
+		error: function(newUser, error) {
+			console.error(error.message);
+		}
+	});
+}
+
+exports.makeUser = function() {
+	var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
+	createUser(UserPaypalInfo, "newUserId", "newToken", "newPayerId");
+}
+
 exports.doEC = function(callback, req) {
 	var url = "https://api-3t.sandbox.paypal.com/nvp";
 	var user = "karatekinserdar-facilitator_api1.gmail.com";
@@ -114,9 +132,57 @@ exports.doEC = function(callback, req) {
 	var amount = "1.00";
 	var currency = "USD";
 	var payerId = req.param("PayerID");
-	var token = req.param("token");
+	var token = req.param("token").replace("%2d", "-");
 	
 	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=DoExpressCheckoutPayment&TOKEN=" + token + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&PAYERID=" + payerId + "&PAYMENTREQUEST_0_AMT=" + amount + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency;
+
+	console.log("looking for token: " + token);
+
+	var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
+	var query = new Parse.Query(UserPaypalInfo);
+	query.equalTo("token", token);
+	query.first({
+		success: function(user) {
+			if (user != undefined) {
+				user.set("payerId", payerId);
+				user.save(null, {
+					success: function(user) {
+						console.log("Updated user");
+					},
+					error: function(user, error) {
+						console.error(error.message);
+					}
+				});
+			}
+			// console.log("User: " + user.get("username"));
+		},
+		error: function(error) {
+			console.error(error.message);
+			// createUser(UserPaypalInfo, "tempUser", "fakeToken", payerId);
+		}
+	});
+
+	callback();
+
+	// var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
+	// var query = new Parse.Query(UserPaypalInfo);
+	// query.get(userId, {
+	// 	success: function(user) {
+	// 		console.log("User: " + user.get("username"));
+	// 		user.set("payerId", payerId);
+	// 		user.save(null, {
+	// 			success: function(user) {
+	// 				console.log("Updated user");
+	// 			},
+	// 			error: function(user, error) {
+
+	// 			}
+	// 		});
+	// 	},
+	// 	error: function(user, error) {
+	// 		console.error(error.message);
+	// 	}
+	// });
 }
 
 exports.authenticate = function() {
@@ -174,6 +240,151 @@ exports.createPayment = function() {
 		else {
 			console.log("Authorization ID: " + payment.transactions[0].related_resources[0].authorization.id);
 			return payment.transactions[0].related_resources[0].authorization.id;
+		}
+	});
+}
+
+exports.processWinWinAction = function(callback, req) {
+	// req params
+	var wwId = req.param("wwId");
+	var hit = req.param("hit");
+
+	// lookup params
+	var hitEmail;
+	var missEmail;
+	var aEndorsers = new Array();
+
+	// get hit/miss email of WW
+	var WinWin = Parse.Object.extend("WinWin");
+	var wwQuery = new Parse.Query(WinWin);
+	var myWW;
+	wwQuery.equalTo("objectId", wwId);
+	wwQuery.first({
+		success: function(winwin) {
+			myWW = winwin;
+			hitEmail = winwin.get("hit_email");
+			missEmail = winwin.get("miss_email");
+			console.log("WinWin Name: " + winwin.get("name"));
+			console.log("Hit Email: " + hitEmail);
+			console.log("Miss Email: " + missEmail);
+
+			// get all endorsers of WW
+			var Endorsement = Parse.Object.extend("Endorsement");
+			var endQuery = new Parse.Query(Endorsement);
+			endQuery.equalTo("winwin", myWW);
+			console.log("Looking for endorsers of: " + wwId);
+			endQuery.find({
+				success: function(endorsers) {
+					for (var i = 0; i < endorsers.length; i++) {
+						var endorser = endorsers[i].get("endorser");
+						aEndorsers.push(endorser);
+						console.log("Endorser: " + endorser.id);
+					}
+
+					console.log("Number of endorsers: " + aEndorsers.length);
+
+					for (var i = 0; i < aEndorsers.length; i++) {	
+						var endorser = aEndorsers[i];
+						if (hit) {
+							// record transaction for winwin creator
+							createTransaction(winwin, hitEmail, endorser, hit);
+						}
+						else {
+							// record transaction for charity
+							createTransaction(winwin, missEmail, endorser, hit);
+						}	
+					}
+				},
+				error: function(error) {
+					console.log(error.message);
+				}
+			});
+		},
+		error: function(error) {
+			console.log(error.message);
+		}
+	});
+
+
+
+	callback();
+}
+
+function createTransaction(ww, email, endorser, hit) {
+	var Transaction = Parse.Object.extend("Transaction");
+	var transaction = new Transaction();
+
+	console.log("Creating transaction for: ");
+	console.log("WinWin: " + ww);
+	console.log("Payment Email: " + email);
+	console.log("Endorser: " + endorser.id);
+
+	transaction.set("winwin", ww);
+	transaction.set("recipient", email);
+	transaction.set("endorser", endorser);
+	transaction.set("amount", 1.00);
+	transaction.set("hit", hit);
+
+	transaction.save(null, {
+		success: function(transaction) {
+			console.log("Created transaction");
+		},
+		error: function(error) {
+			console.error(error.message);
+		}
+	});
+
+	var WinWinData = Parse.Object.extend("WinWinData");	
+	var wwdQuery = new Parse.Query(WinWinData);
+	wwdQuery.equalTo("winwin", ww);
+	wwdQuery.first({
+		success: function(winwinData) {
+			if (winwinData != undefined) {
+				var totalHits = (winwinData.get("hits") == undefined ? 0 : winwinData.get("hits"));
+				var totalMisses = (winwinData.get("misses") == undefined ? 0 : winwinData.get("misses"));
+				
+				console.log("Total Hits: " + totalHits);
+				console.log("Total Misses: " + totalMisses);
+
+				if (hit == "true") {
+					totalHits++;
+				}
+				else {
+					totalMisses++;
+				}
+
+				winwinData.set("hits", totalHits);
+				winwinData.set("misses", totalMisses);
+				winwinData.set("winwin", ww);
+
+				winwinData.save(null, {
+					success: function(winwinData) {
+						console.log("Updated WinWinData Object");
+					},
+					error: function(winwinData, error) {
+						console.error("Error: " + JSON.stringify(error)); 
+					}
+				});
+			}
+			else {
+				var winwinData = new WinWinData();
+
+				winwinData.set("hits", (hit == "true" ? 1 : 0));
+				winwinData.set("misses", (hit == "false" ? 0 : 1));
+				winwinData.set("winwin", ww);
+
+				winwinData.save(null, {
+					success: function(winwinData) {
+						console.log("Updated WinWinData Object");
+					},
+					error: function(winwinData, error) {
+						console.error("Error: " + JSON.stringify(error)); 
+					}
+				});
+			}
+		},
+		error: function(winwinData) {
+
 		}
 	});
 }

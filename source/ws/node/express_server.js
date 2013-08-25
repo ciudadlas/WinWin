@@ -42,11 +42,27 @@ app.get('/getToken', function(req, res) {
 });
 
 app.get('/doEC', function(req, res) {
-	var myObj = new Object();
-	myObj.token = req.param('token');
-	myObj.PayerID = req.param('PayerID');
-	console.log("Request: " + req.param('token') + " " + req.param('PayerID'));
-	res.send(myObj);
+	// console.log("doEC called from PayPal");
+	paypal.doEC(
+		function() {
+			res.send("doEC");
+		},
+		req);
+	// var myObj = new Object();
+	// myObj.token = req.param('token');
+	// myObj.PayerID = req.param('PayerID');
+	// console.log("Request: " + req.param('token') + " " + req.param('PayerID'));
+	// res.send(myObj);
+
+});
+
+app.get('/processWWAction', function(req, res) {
+	var response = paypal.processWinWinAction(
+		function() {
+			res.send("Done");
+		},
+		req
+	)
 });
 
 app.listen(8124);
