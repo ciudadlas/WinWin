@@ -44,6 +44,8 @@
     self.backersCountLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
     self.hitDollarsLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
     self.missDollarsLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    
+    self.descriptionCopy.text = [self.winWin objectForKey:@"description"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
