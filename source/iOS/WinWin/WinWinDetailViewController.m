@@ -52,8 +52,11 @@
         NSLog(@"Existing user endorsment count: %i", count);
         if (count > 0)
         {
-            self.endorseButton.enabled = NO;
-            self.endorseButton.titleLabel.text = @"YOU'RE ALREADY IN";
+            self.endorseButton.selected = YES;
+        }
+        else
+        {
+            self.endorseButton.selected = NO;
         }
     }];
     
@@ -89,7 +92,7 @@
 }
 
 - (IBAction)imInButtonTap:(id)sender
-{    
+{   
     // Create Endorsement object
     PFObject *newEndorsement = [PFObject objectWithClassName:@"Endorsement"];
     
@@ -102,6 +105,12 @@
         if (!error) {
             // Dismiss the NewPostViewController and show the BlogTableViewController
             NSLog(@"Created new Endorsement object");
+            
+            if ([sender isSelected]) {
+                [sender setSelected:NO];
+            } else {
+                [sender setSelected:YES];
+            }
         }
     }];
     
