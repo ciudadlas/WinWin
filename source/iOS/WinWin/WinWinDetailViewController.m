@@ -44,8 +44,42 @@
     self.backersCountLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
     self.hitDollarsLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
     self.missDollarsLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    self.winwinName.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
     
     self.descriptionCopy.text = [self.winWin objectForKey:@"description"];
+    self.winwinName.text = [self.winWin objectForKey:@"name"];
+    
+    // Get username
+    if ([PFUser currentUser]) {
+        // If the user is logged in, show their name in the welcome label.
+        
+        if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
+            // If user is linked to Twitter, we'll use their Twitter screen name
+            self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [PFTwitterUtils twitter].screenName];
+            
+        } else if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+            // If user is linked to Facebook, we'll use the Facebook Graph API to fetch their full name. But first, show a generic Welcome label.
+            
+            // Create Facebook Request for user's details
+            FBRequest *request = [FBRequest requestForMe];
+            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                // This is an asynchronous method. When Facebook responds, if there are no errors, we'll update the Welcome label.
+                if (!error) {
+                    NSString *displayName = result[@"name"];
+                    if (displayName) {
+                        self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), displayName];
+                    }
+                }
+            }];
+            
+        } else {
+            // If user is linked to neither, let's use their username for the Welcome label.
+            self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [PFUser currentUser].username];
+            
+        }
+        
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -80,7 +114,7 @@
             self.backersCount.text = [NSString stringWithFormat:@"%i", count];
         }
     }];
-    
+        
     // Figure out how many hit $
     
     // Figure out how many miss $
