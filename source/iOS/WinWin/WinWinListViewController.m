@@ -7,6 +7,7 @@
 
 #import "WinWinListViewController.h"
 #import "WinWinDetailViewController.h"
+#import "UIView+FirstResponder.h"
 
 #define AddWinViewHeight 160
 
@@ -53,7 +54,9 @@
         headerView.delegate = self;
         
         self.tableView.tableHeaderView = headerView;
-    }    
+    }
+    
+    [self registerForKeyboardNotifications];
 }
 
 - (void)viewDidUnload
@@ -98,6 +101,25 @@
     
     // Release any cached data, images, etc that aren't in use.
 }
+
+- (void)registerForKeyboardNotifications {
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)aNotification {
+    UIView *firstResponder = [self.view findFirstResponder];
+    
+    CGRect responderOffset = [self.tableView convertRect:firstResponder.frame fromView:firstResponder.superview];
+    
+    [self.tableView scrollRectToVisible:responderOffset animated:YES];    
+}
+
+- (void)keyboardWillHide:(NSNotification *)aNotification {
+    [self.tableView setContentOffset:CGPointMake(0, 55) animated:YES];
+}
+
+
 
 #pragma mark - Parse
 

@@ -7,6 +7,7 @@
 //
 
 #import "AddWinView.h"
+#import "UIView+FirstResponder.h"
 
 typedef enum {
 	AddWinButtonText = 0,
@@ -14,6 +15,16 @@ typedef enum {
 	AddWinButtonMoney = 2,
     AddWinButtonShare = 3
 } AddWinButtons;
+
+typedef enum {
+	AddWinTextFieldName = 100,
+	AddWinTextFieldWhat = 110,
+	AddWinTextFieldWhy = 120,
+	AddWinTextFieldWhen = 130,
+	AddWinTextFieldAmount = 140,
+	AddWinTextFieldToYes = 150,
+    AddWinTextFieldToNo = 160
+} AddWinTextFields;
 
 @interface AddWinView ()
 
@@ -103,6 +114,7 @@ typedef enum {
         BOOL disableButton = aButton == button;
         aButton.enabled = !disableButton;
     }
+    [[self findFirstResponder] resignFirstResponder];
 }
 
 #pragma mark - UIScrollViewDelegate methods
