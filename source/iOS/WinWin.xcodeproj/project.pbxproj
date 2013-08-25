@@ -64,6 +64,8 @@
 		75B5919E17CA214700DC664B /* twitter-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919D17CA214700DC664B /* twitter-logo@2x.png */; };
 		75B591A017CA234900DC664B /* login-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919F17CA234900DC664B /* login-bg.png */; };
 		75B591A217CA235400DC664B /* login-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B591A117CA235400DC664B /* login-bg@2x.png */; };
+		75B591A417CA290D00DC664B /* winwin-detail-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B591A317CA290D00DC664B /* winwin-detail-bg.png */; };
+		75B591A617CA291500DC664B /* winwin-detail-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B591A517CA291500DC664B /* winwin-detail-bg@2x.png */; };
 		75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */; };
 		75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986917C878DE005FC7BC /* StoreKit.framework */; };
 		75DC986F17C87920005FC7BC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986717C878D8005FC7BC /* Security.framework */; };
@@ -179,6 +181,8 @@
 		75B5919D17CA214700DC664B /* twitter-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-logo@2x.png"; sourceTree = "<group>"; };
 		75B5919F17CA234900DC664B /* login-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bg.png"; sourceTree = "<group>"; };
 		75B591A117CA235400DC664B /* login-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bg@2x.png"; sourceTree = "<group>"; };
+		75B591A317CA290D00DC664B /* winwin-detail-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "winwin-detail-bg.png"; sourceTree = "<group>"; };
+		75B591A517CA291500DC664B /* winwin-detail-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "winwin-detail-bg@2x.png"; sourceTree = "<group>"; };
 		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -447,6 +451,8 @@
 		EF0066B817C99AC100F7F91D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				75B591A317CA290D00DC664B /* winwin-detail-bg.png */,
+				75B591A517CA291500DC664B /* winwin-detail-bg@2x.png */,
 				75B5919F17CA234900DC664B /* login-bg.png */,
 				75B591A117CA235400DC664B /* login-bg@2x.png */,
 				75B5919D17CA214700DC664B /* twitter-logo@2x.png */,
@@ -602,6 +608,8 @@
 				75B5919E17CA214700DC664B /* twitter-logo@2x.png in Resources */,
 				75B591A017CA234900DC664B /* login-bg.png in Resources */,
 				75B591A217CA235400DC664B /* login-bg@2x.png in Resources */,
+				75B591A417CA290D00DC664B /* winwin-detail-bg.png in Resources */,
+				75B591A617CA291500DC664B /* winwin-detail-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
