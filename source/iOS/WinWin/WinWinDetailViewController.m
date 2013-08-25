@@ -37,7 +37,13 @@
     
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
-
+    
+    self.backersCount.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    self.hitDollars.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    self.missDollars.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    self.backersCountLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    self.hitDollarsLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
+    self.missDollarsLabel.textColor = [UIColor colorWithRed:0.91 green:0.32 blue:0.20 alpha:1];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -69,13 +75,13 @@
         NSLog(@"Existing total endorsment count: %i", count);
         if (count > 0)
         {
-            self.backersCount.text = [NSString stringWithFormat:@"%i total backers", count];
+            self.backersCount.text = [NSString stringWithFormat:@"%i", count];
         }
     }];
     
     // Figure out how many hit $
     
-    // Figure out how many hit $
+    // Figure out how many miss $
 
 
 }

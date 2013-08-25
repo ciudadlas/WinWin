@@ -18,13 +18,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *backersCount;
 @property (weak, nonatomic) IBOutlet UILabel *hitDollars;
 @property (weak, nonatomic) IBOutlet UILabel *missDollars;
-@property (weak, nonatomic) IBOutlet UILabel *creationDate;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionCopy;
 
-@property (weak, nonatomic) IBOutlet UIView *topView;
-@property (weak, nonatomic) IBOutlet UIView *smallRectangle1;
-@property (weak, nonatomic) IBOutlet UIView *smallRectangle2;
-@property (weak, nonatomic) IBOutlet UIView *smallRectangle3;
+@property (weak, nonatomic) IBOutlet UILabel *backersCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hitDollarsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *missDollarsLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *descriptionCopy;
 
 - (IBAction)imInButtonTap:(id)sender;
 
