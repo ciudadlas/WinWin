@@ -31,17 +31,6 @@
 		75924A9017C919E000010F9A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75924A8F17C919E000010F9A /* libxml2.dylib */; };
 		75924A9217C919E800010F9A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75924A9117C919E800010F9A /* MessageUI.framework */; };
 		75924A9417C91A2900010F9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75924A9317C91A2900010F9A /* OpenGLES.framework */; };
-		75924AA717C9717400010F9A /* WinWinPayPalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AA517C9717400010F9A /* WinWinPayPalWebViewController.m */; };
-		75924AA817C9717400010F9A /* WinWinPayPalWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75924AA617C9717400010F9A /* WinWinPayPalWebViewController.xib */; };
-		75924ABD17C97C4F00010F9A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AAB17C97C4F00010F9A /* AFHTTPClient.m */; };
-		75924ABE17C97C4F00010F9A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AAD17C97C4F00010F9A /* AFHTTPRequestOperation.m */; };
-		75924ABF17C97C4F00010F9A /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AAF17C97C4F00010F9A /* AFImageRequestOperation.m */; };
-		75924AC017C97C4F00010F9A /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB117C97C4F00010F9A /* AFJSONRequestOperation.m */; };
-		75924AC117C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB317C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m */; };
-		75924AC217C97C4F00010F9A /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB617C97C4F00010F9A /* AFPropertyListRequestOperation.m */; };
-		75924AC317C97C4F00010F9A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924AB817C97C4F00010F9A /* AFURLConnectionOperation.m */; };
-		75924AC417C97C4F00010F9A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924ABA17C97C4F00010F9A /* AFXMLRequestOperation.m */; };
-		75924AC517C97C4F00010F9A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 75924ABC17C97C4F00010F9A /* UIImageView+AFNetworking.m */; };
 		75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */; };
 		75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986917C878DE005FC7BC /* StoreKit.framework */; };
 		75DC986F17C87920005FC7BC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986717C878D8005FC7BC /* Security.framework */; };
@@ -53,6 +42,16 @@
 		75DC987517C87920005FC7BC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC985B17C87895005FC7BC /* AudioToolbox.framework */; };
 		EF33558117C9429D00F94AA9 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF33557F17C9429D00F94AA9 /* plus@2x.png */; };
 		EF33558217C9429D00F94AA9 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = EF33558017C9429D00F94AA9 /* plus.png */; };
+		EF4773F017C9652600FAB1F2 /* AddWinView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4773EF17C9652600FAB1F2 /* AddWinView.m */; };
+		EF4773F217C9653B00FAB1F2 /* AddWinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F117C9653B00FAB1F2 /* AddWinView.xib */; };
+		EF4773FB17C97E0A00FAB1F2 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F317C97E0A00FAB1F2 /* pencil.png */; };
+		EF4773FC17C97E0A00FAB1F2 /* pencil@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F417C97E0A00FAB1F2 /* pencil@2x.png */; };
+		EF4773FD17C97E0A00FAB1F2 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F517C97E0A00FAB1F2 /* clock@2x.png */; };
+		EF4773FE17C97E0A00FAB1F2 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F617C97E0A00FAB1F2 /* clock.png */; };
+		EF4773FF17C97E0A00FAB1F2 /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F717C97E0A00FAB1F2 /* dollar.png */; };
+		EF47740017C97E0A00FAB1F2 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F817C97E0A00FAB1F2 /* share@2x.png */; };
+		EF47740117C97E0A00FAB1F2 /* dollar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773F917C97E0A00FAB1F2 /* dollar@2x.png */; };
+		EF47740217C97E0A00FAB1F2 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4773FA17C97E0A00FAB1F2 /* share.png */; };
 		EFFE879D17C95091002F9402 /* WinWinListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE879C17C95091002F9402 /* WinWinListViewController.m */; };
 		EFFE87A117C955E8002F9402 /* WinWinDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE879F17C955E8002F9402 /* WinWinDetailViewController.m */; };
 		EFFE87A217C955E8002F9402 /* WinWinDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFFE87A017C955E8002F9402 /* WinWinDetailViewController.xib */; };
@@ -94,28 +93,6 @@
 		75924A9117C919E800010F9A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		75924A9317C91A2900010F9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		75924A9617C921B800010F9A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		75924AA417C9717400010F9A /* WinWinPayPalWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinPayPalWebViewController.h; sourceTree = "<group>"; };
-		75924AA517C9717400010F9A /* WinWinPayPalWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinWinPayPalWebViewController.m; sourceTree = "<group>"; };
-		75924AA617C9717400010F9A /* WinWinPayPalWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WinWinPayPalWebViewController.xib; sourceTree = "<group>"; };
-		75924AAA17C97C4F00010F9A /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
-		75924AAB17C97C4F00010F9A /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
-		75924AAC17C97C4F00010F9A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		75924AAD17C97C4F00010F9A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		75924AAE17C97C4F00010F9A /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
-		75924AAF17C97C4F00010F9A /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
-		75924AB017C97C4F00010F9A /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
-		75924AB117C97C4F00010F9A /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
-		75924AB217C97C4F00010F9A /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		75924AB317C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		75924AB417C97C4F00010F9A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		75924AB517C97C4F00010F9A /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
-		75924AB617C97C4F00010F9A /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
-		75924AB717C97C4F00010F9A /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		75924AB817C97C4F00010F9A /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		75924AB917C97C4F00010F9A /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
-		75924ABA17C97C4F00010F9A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
-		75924ABB17C97C4F00010F9A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		75924ABC17C97C4F00010F9A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -127,6 +104,18 @@
 		75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF33557F17C9429D00F94AA9 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
 		EF33558017C9429D00F94AA9 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		EF4773ED17C964E700FAB1F2 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		EF4773EE17C9652600FAB1F2 /* AddWinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWinView.h; sourceTree = "<group>"; };
+		EF4773EF17C9652600FAB1F2 /* AddWinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWinView.m; sourceTree = "<group>"; };
+		EF4773F117C9653B00FAB1F2 /* AddWinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddWinView.xib; sourceTree = "<group>"; };
+		EF4773F317C97E0A00FAB1F2 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		EF4773F417C97E0A00FAB1F2 /* pencil@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil@2x.png"; sourceTree = "<group>"; };
+		EF4773F517C97E0A00FAB1F2 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		EF4773F617C97E0A00FAB1F2 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		EF4773F717C97E0A00FAB1F2 /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
+		EF4773F817C97E0A00FAB1F2 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
+		EF4773F917C97E0A00FAB1F2 /* dollar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dollar@2x.png"; sourceTree = "<group>"; };
+		EF4773FA17C97E0A00FAB1F2 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		EFFE879B17C95091002F9402 /* WinWinListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinListViewController.h; sourceTree = "<group>"; };
 		EFFE879C17C95091002F9402 /* WinWinListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinWinListViewController.m; sourceTree = "<group>"; };
 		EFFE879E17C955E8002F9402 /* WinWinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinWinDetailViewController.h; sourceTree = "<group>"; };
@@ -243,7 +232,6 @@
 		758BB45517C874D7003551EA /* WinWin */ = {
 			isa = PBXGroup;
 			children = (
-				75924AA317C9714600010F9A /* UIWebViewController */,
 				75924A8717C9191000010F9A /* Libraries */,
 				751ED89E17C88D590015F05B /* SignUpViewController */,
 				751ED89D17C88D430015F05B /* LoginViewController */,
@@ -271,6 +259,15 @@
 				758BB46517C874D7003551EA /* Default-568h@2x.png */,
 				EF33557F17C9429D00F94AA9 /* plus@2x.png */,
 				EF33558017C9429D00F94AA9 /* plus.png */,
+				EF4773F317C97E0A00FAB1F2 /* pencil.png */,
+				EF4773F417C97E0A00FAB1F2 /* pencil@2x.png */,
+				EF4773F517C97E0A00FAB1F2 /* clock@2x.png */,
+				EF4773F617C97E0A00FAB1F2 /* clock.png */,
+				EF4773F717C97E0A00FAB1F2 /* dollar.png */,
+				EF4773F817C97E0A00FAB1F2 /* share@2x.png */,
+				EF4773F917C97E0A00FAB1F2 /* dollar@2x.png */,
+				EF4773FA17C97E0A00FAB1F2 /* share.png */,
+				EF4773ED17C964E700FAB1F2 /* Macros.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -289,46 +286,9 @@
 		75924A8717C9191000010F9A /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				75924AA917C97C4F00010F9A /* AFNetworking */,
 				75924A8117C9190B00010F9A /* PayPalMobile */,
 			);
 			name = Libraries;
-			sourceTree = "<group>";
-		};
-		75924AA317C9714600010F9A /* UIWebViewController */ = {
-			isa = PBXGroup;
-			children = (
-				75924AA417C9717400010F9A /* WinWinPayPalWebViewController.h */,
-				75924AA517C9717400010F9A /* WinWinPayPalWebViewController.m */,
-				75924AA617C9717400010F9A /* WinWinPayPalWebViewController.xib */,
-			);
-			name = UIWebViewController;
-			sourceTree = "<group>";
-		};
-		75924AA917C97C4F00010F9A /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				75924AAA17C97C4F00010F9A /* AFHTTPClient.h */,
-				75924AAB17C97C4F00010F9A /* AFHTTPClient.m */,
-				75924AAC17C97C4F00010F9A /* AFHTTPRequestOperation.h */,
-				75924AAD17C97C4F00010F9A /* AFHTTPRequestOperation.m */,
-				75924AAE17C97C4F00010F9A /* AFImageRequestOperation.h */,
-				75924AAF17C97C4F00010F9A /* AFImageRequestOperation.m */,
-				75924AB017C97C4F00010F9A /* AFJSONRequestOperation.h */,
-				75924AB117C97C4F00010F9A /* AFJSONRequestOperation.m */,
-				75924AB217C97C4F00010F9A /* AFNetworkActivityIndicatorManager.h */,
-				75924AB317C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m */,
-				75924AB417C97C4F00010F9A /* AFNetworking.h */,
-				75924AB517C97C4F00010F9A /* AFPropertyListRequestOperation.h */,
-				75924AB617C97C4F00010F9A /* AFPropertyListRequestOperation.m */,
-				75924AB717C97C4F00010F9A /* AFURLConnectionOperation.h */,
-				75924AB817C97C4F00010F9A /* AFURLConnectionOperation.m */,
-				75924AB917C97C4F00010F9A /* AFXMLRequestOperation.h */,
-				75924ABA17C97C4F00010F9A /* AFXMLRequestOperation.m */,
-				75924ABB17C97C4F00010F9A /* UIImageView+AFNetworking.h */,
-				75924ABC17C97C4F00010F9A /* UIImageView+AFNetworking.m */,
-			);
-			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		EF47739E17C95C1100FAB1F2 /* ListViewController */ = {
@@ -336,6 +296,9 @@
 			children = (
 				EFFE879B17C95091002F9402 /* WinWinListViewController.h */,
 				EFFE879C17C95091002F9402 /* WinWinListViewController.m */,
+				EF4773EE17C9652600FAB1F2 /* AddWinView.h */,
+				EF4773EF17C9652600FAB1F2 /* AddWinView.m */,
+				EF4773F117C9653B00FAB1F2 /* AddWinView.xib */,
 			);
 			name = ListViewController;
 			sourceTree = "<group>";
@@ -409,7 +372,15 @@
 				EFFE87A217C955E8002F9402 /* WinWinDetailViewController.xib in Resources */,
 				EF33558217C9429D00F94AA9 /* plus.png in Resources */,
 				751ED8A617C890A10015F05B /* WinWinHomeViewController.xib in Resources */,
-				75924AA817C9717400010F9A /* WinWinPayPalWebViewController.xib in Resources */,
+				EF4773F217C9653B00FAB1F2 /* AddWinView.xib in Resources */,
+				EF4773FB17C97E0A00FAB1F2 /* pencil.png in Resources */,
+				EF4773FC17C97E0A00FAB1F2 /* pencil@2x.png in Resources */,
+				EF4773FD17C97E0A00FAB1F2 /* clock@2x.png in Resources */,
+				EF4773FE17C97E0A00FAB1F2 /* clock.png in Resources */,
+				EF4773FF17C97E0A00FAB1F2 /* dollar.png in Resources */,
+				EF47740017C97E0A00FAB1F2 /* share@2x.png in Resources */,
+				EF47740117C97E0A00FAB1F2 /* dollar@2x.png in Resources */,
+				EF47740217C97E0A00FAB1F2 /* share.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,16 +399,7 @@
 				EFFE87A117C955E8002F9402 /* WinWinDetailViewController.m in Sources */,
 				751ED8A117C88DBE0015F05B /* WinWinSignUpViewController.m in Sources */,
 				751ED8A517C890A10015F05B /* WinWinHomeViewController.m in Sources */,
-				75924AA717C9717400010F9A /* WinWinPayPalWebViewController.m in Sources */,
-				75924ABD17C97C4F00010F9A /* AFHTTPClient.m in Sources */,
-				75924ABE17C97C4F00010F9A /* AFHTTPRequestOperation.m in Sources */,
-				75924ABF17C97C4F00010F9A /* AFImageRequestOperation.m in Sources */,
-				75924AC017C97C4F00010F9A /* AFJSONRequestOperation.m in Sources */,
-				75924AC117C97C4F00010F9A /* AFNetworkActivityIndicatorManager.m in Sources */,
-				75924AC217C97C4F00010F9A /* AFPropertyListRequestOperation.m in Sources */,
-				75924AC317C97C4F00010F9A /* AFURLConnectionOperation.m in Sources */,
-				75924AC417C97C4F00010F9A /* AFXMLRequestOperation.m in Sources */,
-				75924AC517C97C4F00010F9A /* UIImageView+AFNetworking.m in Sources */,
+				EF4773F017C9652600FAB1F2 /* AddWinView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

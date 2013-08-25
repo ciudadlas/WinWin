@@ -6,7 +6,9 @@
 //
 
 #import <Parse/Parse.h>
+#import "AddWinView.h"
 
-@interface WinWinListViewController : PFQueryTableViewController
+@interface WinWinListViewController : PFQueryTableViewController <AddWinViewDelegate>
+
 
 @end
