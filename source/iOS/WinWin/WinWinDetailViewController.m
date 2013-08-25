@@ -8,6 +8,8 @@
 
 #import "WinWinDetailViewController.h"
 #import "AFJSONRequestOperation.h"
+#import "UIImageView+AFNetworking.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WinWinDetailViewController ()
 
@@ -78,9 +80,21 @@
             self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [PFUser currentUser].username];
             
         }
-        
     }
     
+    self.userImage.layer.masksToBounds = YES;
+    self.userImage.layer.cornerRadius = 31;
+    
+    
+    PFQuery *query= [PFUser query];
+    
+    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error){
+               
+        [self.userImage setImageWithURL:[NSURL URLWithString:[object objectForKey:@"imageLink"]]];
+        
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated

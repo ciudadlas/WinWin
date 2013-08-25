@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *winwinName;
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *backersCount;
 @property (weak, nonatomic) IBOutlet UILabel *hitDollars;
