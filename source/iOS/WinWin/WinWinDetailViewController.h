@@ -15,7 +15,8 @@
 
 @property (strong, nonatomic) PFObject *winWin;
 
-@property (weak, nonatomic) IBOutlet UIButton *endorseButton;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *winwinName;
 
 @property (weak, nonatomic) IBOutlet UILabel *backersCount;
 @property (weak, nonatomic) IBOutlet UILabel *hitDollars;
@@ -26,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *missDollarsLabel;
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionCopy;
+
+@property (weak, nonatomic) IBOutlet UIButton *endorseButton;
 
 - (IBAction)imInButtonTap:(id)sender;
 
