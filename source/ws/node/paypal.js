@@ -337,22 +337,12 @@ exports.processWinWinAction = function(callback, req) {
 					for (var i = 0; i < endorsers.length; i++) {
 						var endorser = endorsers[i].get("endorser");
 						aEndorsers.push(endorser);
-						console.log("Endorser: " + endorser.id);
+						var email = (hit == "true" ? hitEmail : missEmail);
+						createTransaction(winwin, email, endorser, hit);
 					}
 
 					console.log("Number of endorsers: " + aEndorsers.length);
-
-					for (var i = 0; i < aEndorsers.length; i++) {	
-						var endorser = aEndorsers[i];
-						if (hit) {
-							// record transaction for winwin creator
-							createTransaction(winwin, hitEmail, endorser, hit);
-						}
-						else {
-							// record transaction for charity
-							createTransaction(winwin, missEmail, endorser, hit);
-						}	
-					}
+					updateWinWinData(winwin, hit, aEndorsers.length);
 				},
 				error: function(error) {
 					console.log(error.message);
@@ -373,10 +363,7 @@ function createTransaction(ww, email, endorser, hit) {
 	var Transaction = Parse.Object.extend("Transaction");
 	var transaction = new Transaction();
 
-	console.log("Creating transaction for: ");
-	console.log("WinWin: " + ww);
-	console.log("Payment Email: " + email);
-	console.log("Endorser: " + endorser.id);
+	console.log("Endorsing " + ww.get("name") + " as " + endorser.id + ". Sending payment to " + email + " [hit:" + hit + "]");
 
 	transaction.set("winwin", ww);
 	transaction.set("recipient", email);
@@ -392,7 +379,9 @@ function createTransaction(ww, email, endorser, hit) {
 			console.error(error.message);
 		}
 	});
+}
 
+function updateWinWinData(ww, hit, count) {
 	var WinWinData = Parse.Object.extend("WinWinData");	
 	var wwdQuery = new Parse.Query(WinWinData);
 	wwdQuery.equalTo("winwin", ww);
@@ -401,15 +390,14 @@ function createTransaction(ww, email, endorser, hit) {
 			if (winwinData != undefined) {
 				var totalHits = (winwinData.get("hits") == undefined ? 0 : winwinData.get("hits"));
 				var totalMisses = (winwinData.get("misses") == undefined ? 0 : winwinData.get("misses"));
-				
-				console.log("Total Hits: " + totalHits);
-				console.log("Total Misses: " + totalMisses);
 
 				if (hit == "true") {
-					totalHits++;
+					totalHits += count;
+					console.log("hit, " + winwinData.get("hits") + " >>> " + totalHits);
 				}
 				else {
-					totalMisses++;
+					totalMisses += count;
+					console.log("miss, " + winwinData.get("misses") + " >>> " + totalMisses);
 				}
 
 				winwinData.set("hits", totalHits);

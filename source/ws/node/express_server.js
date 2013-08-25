@@ -59,7 +59,9 @@ app.get('/doEC', function(req, res) {
 app.get('/processWWAction', function(req, res) {
 	var response = paypal.processWinWinAction(
 		function() {
-			res.send("Done");
+			res.writeHead(200, {"Content-Type": "application/json"});
+			res.write("OK");
+			res.end();
 		},
 		req
 	)
