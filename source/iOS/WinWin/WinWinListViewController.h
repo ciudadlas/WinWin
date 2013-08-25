@@ -8,7 +8,7 @@
 #import <Parse/Parse.h>
 #import "AddWinView.h"
 
-@interface WinWinListViewController : PFQueryTableViewController <AddWinViewDelegate>
+@interface WinWinListViewController : PFQueryTableViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, AddWinViewDelegate>
 
 
 @end
