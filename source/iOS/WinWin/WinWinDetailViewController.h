@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "WinWinPayPalWebViewController.h"
 
-@interface WinWinDetailViewController : UIViewController
+
+@interface WinWinDetailViewController : UIViewController <WinWinPayPalWebViewControllerDelegate>
 
 @property (strong, nonatomic) PFObject *winWin;
 

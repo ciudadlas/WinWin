@@ -35,4 +35,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIWebViewDelegate methods
+
+/*
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSString *destinationURL = [request.URL absoluteString];
+    if ([destinationURL rangeOfString:@""].location != NSNotFound) {
+        [self dismiss];
+    }
+    return YES;
+}
+*/
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSString *destinationURL = [self.webView.request.URL absoluteString];
+    if ([destinationURL rangeOfString:@"winwin.jit.su/doEC"].location != NSNotFound) {
+        [self dismiss];
+    }
+}
+
+- (void)dismiss {
+    if ([self.delegate respondsToSelector:@selector(didAuthenticate)]) {
+        [self.delegate didAuthenticate];
+    }
+}
+
 @end
