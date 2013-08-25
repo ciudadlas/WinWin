@@ -1,12 +1,16 @@
+// Parse params
 var APP_ID = "AQsFyNyhNcS88YHvdSM2xNudh8ZZTd2U2W8PPHvf";
 var MASTER_KEY = "dCxgvw2as9frnEz4AUi6pnIgVtS5k2IiJURsZQlU";
 var JS_KEY = "NC3JMJjrTdvfuHUup0QKTlobkXillVpQoUMzhnLA";
 
+// requires
 var paypal_sdk = require('paypal-rest-sdk');
 var jQ = require('jquery');
 var async = require('async');
 var Parse = require('parse').Parse;
 Parse.initialize(APP_ID, JS_KEY);
+
+var debugPayPal = false;
 
 function configure() {
 	paypal_sdk.configure({
@@ -23,11 +27,12 @@ exports.getToken = function(callback, req) {
 	var signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AF.pqE60zi4L8.5DxdUYbLx.iE..";
 	var amount = "1.00";
 	var currency = "USD";
+	var method = "SETEXPRESSCHECKOUT";
 	// var urlFail = "http%3a%2f%2flocalhost%3a4555%2fGetECDetails.aspx";
 	var urlFail = "http://winwin.jit.su/doECFail"
 	var urlSuccess = "http://winwin.jit.su/doEC";
 
-	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=SETEXPRESSCHECKOUT&PAYMENTREQUEST_0_AMT=" + amount + "&RETURNURL=" + urlSuccess + "&CANCELURL=" + urlFail + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&L_BILLINGTYPE0=MerchantInitiatedBilling&L_PAYMENTTYPE0=Any&ALLOWNOTE=0";
+	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=" + method + "&PAYMENTREQUEST_0_AMT=" + amount + "&RETURNURL=" + urlSuccess + "&CANCELURL=" + urlFail + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&L_BILLINGTYPE0=MerchantInitiatedBilling&L_PAYMENTTYPE0=Any&ALLOWNOTE=0";
 
 	// console.log("Hitting " + url + " with payload: " + payload);
 
@@ -52,6 +57,7 @@ exports.getToken = function(callback, req) {
 
 			resp = JSON.stringify(jsonResponse);
 			// console.log("Response: " + resp + " URL: " + url);
+			savePayPalTransaction(method, payload, response);
 	
 			var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
 			var query = new Parse.Query(UserPaypalInfo);
@@ -80,20 +86,6 @@ exports.getToken = function(callback, req) {
 					createUser(UserPaypalInfo, userId, token);
 				}
 			});
-			// query.equalTo("objectId", userId);
-			// query.first({
-			// 	success: function(user) {
-			// 		user.set('token', token);
-			// 		user.save();
-			// 		console.log(user.get("username"));
-			// 		// for (var i = 0; i < users.length; i++) {
-			// 		// 	console.log(users[i].get("username"));
-			// 		// }
-			// 	},
-			// 	error: function(error) {
-			// 		console.error("Error: " + error.message);
-			// 	}
-			// })
 
 			callback(resp);
 		}
@@ -131,58 +123,125 @@ exports.doEC = function(callback, req) {
 	var signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AF.pqE60zi4L8.5DxdUYbLx.iE..";
 	var amount = "1.00";
 	var currency = "USD";
+	var method = "DoExpressCheckoutPayment";
 	var payerId = req.param("PayerID");
 	var token = req.param("token").replace("%2d", "-");
 	
-	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=DoExpressCheckoutPayment&TOKEN=" + token + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&PAYERID=" + payerId + "&PAYMENTREQUEST_0_AMT=" + amount + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency;
+	var payload = "USER=" + user + "&PWD=" + pwd + "&SIGNATURE=" + signature + "&VERSION=94.0&METHOD=" + method + "&TOKEN=" + token + "&PAYMENTREQUEST_0_PAYMENTACTION=Sale&PAYERID=" + payerId + "&PAYMENTREQUEST_0_AMT=" + amount + "&PAYMENTREQUEST_0_CURRENCYCODE=" + currency;
 
 	console.log("looking for token: " + token);
 
-	var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
-	var query = new Parse.Query(UserPaypalInfo);
-	query.equalTo("token", token);
-	query.first({
-		success: function(user) {
-			if (user != undefined) {
-				user.set("payerId", payerId);
-				user.save(null, {
-					success: function(user) {
-						console.log("Updated user");
-					},
-					error: function(user, error) {
-						console.error(error.message);
+	jQ.ajax({
+		type: "POST",
+		url: url,
+		data: payload,
+		aysnc: false,
+		success: function(response) {
+			var billerIndex = response.indexOf("AGREEMENTID=") + 12;
+			var billerAgreementId = response.substring(billerIndex, response.indexOf("&", billerIndex + 1)).replace("%2d", "-");
+			console.log("billerAgreementId: " + billerAgreementId);
+			// var jsonResponse = new Object();
+			// jsonResponse.token = token;
+			// jsonResponse.userId = userId;
+
+			// // console.log("Success: " + response + " - Token: " + token);
+			// // console.log("Request: " + userId);
+
+			// resp = JSON.stringify(jsonResponse);
+			// // console.log("Response: " + resp + " URL: " + url);
+
+			savePayPalTransaction(method, payload, response);
+
+			var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
+			var query = new Parse.Query(UserPaypalInfo);
+			query.equalTo("token", token);
+			query.first({
+				success: function(user) {
+					if (user != undefined) {
+						user.set("payerId", payerId);
+						user.set("billerAgreementId", billerAgreementId);
+						user.save(null, {
+							success: function(user) {
+								console.log("Updated user");
+							},
+							error: function(user, error) {
+								console.error(error.message);
+							}
+						});
 					}
-				});
-			}
-			// console.log("User: " + user.get("username"));
-		},
-		error: function(error) {
-			console.error(error.message);
-			// createUser(UserPaypalInfo, "tempUser", "fakeToken", payerId);
+					// console.log("User: " + user.get("username"));
+				},
+				error: function(error) {
+					console.error(error.message);
+					// createUser(UserPaypalInfo, "tempUser", "fakeToken", payerId);
+				}
+			});
 		}
 	});
 
 	callback();
+}
 
-	// var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
-	// var query = new Parse.Query(UserPaypalInfo);
-	// query.get(userId, {
-	// 	success: function(user) {
-	// 		console.log("User: " + user.get("username"));
-	// 		user.set("payerId", payerId);
-	// 		user.save(null, {
-	// 			success: function(user) {
-	// 				console.log("Updated user");
-	// 			},
-	// 			error: function(user, error) {
+exports.doRT = function(callback, req) {
+	var userId = req.param("userId");
+	var url = "https://api-3t.sandbox.paypal.com/nvp";
+	var pp_user = "karatekinserdar-facilitator_api1.gmail.com";
+	var pwd = "1377356831";
+	var signature = "AFcWxV21C7fd0v3bYYYRCpSSRl31AF.pqE60zi4L8.5DxdUYbLx.iE..";
+	var amount = "1.00";
+	var currency = "USD";
+	var method = "DoReferenceTransaction";
+	var UserPaypalInfo = Parse.Object.extend("UserPaypalInfo");
+	var query = new Parse.Query(UserPaypalInfo);
+	query.equalTo("user_id", userId);
+	query.first({
+		success: function(user) {
+			var billerAgreementId = user.get("billerAgreementId");
+			var payload = 
+				"USER=" + pp_user + 
+				"&PWD=" + pwd + 
+				"&SIGNATURE=" + signature + 
+				"&VERSION=94.0&METHOD=" + method + 
+				"&REFERENCEID=" + billerAgreementId + 
+				"&PAYMENTACTION=Sale&AMT=" + amount + 
+				"&CURRENCYCODE=" + currency;
 
-	// 			}
-	// 		});
-	// 	},
-	// 	error: function(user, error) {
-	// 		console.error(error.message);
-	// 	}
-	// });
+			console.log("Payload: " + payload);
+			jQ.ajax({
+			type: "POST",
+			url: url,
+			data: payload,
+			aysnc: false,
+			success: function(response) {
+				savePayPalTransaction(method, payload, response);
+		}
+	});
+
+		},
+		error: function(user, error) {
+			console.error("Error: " + JSON.stringify(error));
+		}
+	});
+
+	callback();
+}
+
+function savePayPalTransaction(method, payload, response) {
+	if (debugPayPal) {
+		var PaypalTransaction = Parse.Object.extend("PaypalTransaction");
+		var paypalTransaction = new PaypalTransaction();
+		paypalTransaction.set("method", method);
+		paypalTransaction.set("payload", payload);
+		paypalTransaction.set("response", response);
+		paypalTransaction.save(null, {
+			success: function(user) {
+				console.log("PayPal Transaction saved.");
+			},
+			error: function(error) {
+				console.error(error.message);
+			}
+		});
+	}
 }
 
 exports.authenticate = function() {
@@ -383,8 +442,8 @@ function createTransaction(ww, email, endorser, hit) {
 				});
 			}
 		},
-		error: function(winwinData) {
-
+		error: function(winwinData, error) {
+			console.error("Error: " + JSON.stringify(error));
 		}
 	});
 }

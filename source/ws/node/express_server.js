@@ -65,5 +65,12 @@ app.get('/processWWAction', function(req, res) {
 	)
 });
 
+app.get('/doRT', function(req, res) {
+	paypal.doRT(function() {
+			res.send("Done");
+		},
+		req);
+});
+
 app.listen(8124);
 // console.log('Express server started on port %s', app.address().port);
