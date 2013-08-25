@@ -88,6 +88,8 @@
 		EF0066C717C99ACE00F7F91D /* clock-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0066BF17C99ACE00F7F91D /* clock-highlight@2x.png */; };
 		EF0066C817C99ACE00F7F91D /* dollar-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0066C017C99ACE00F7F91D /* dollar-highlight.png */; };
 		EF0066CB17C9A84B00F7F91D /* UIView+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0066CA17C9A84B00F7F91D /* UIView+FirstResponder.m */; };
+		EF0066CE17CA56C800F7F91D /* browseWins.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0066CC17CA56C800F7F91D /* browseWins.png */; };
+		EF0066CF17CA56C800F7F91D /* browseWins@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF0066CD17CA56C800F7F91D /* browseWins@2x.png */; };
 		EF33558117C9429D00F94AA9 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF33557F17C9429D00F94AA9 /* plus@2x.png */; };
 		EF33558217C9429D00F94AA9 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = EF33558017C9429D00F94AA9 /* plus.png */; };
 		EF4773F017C9652600FAB1F2 /* AddWinView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4773EF17C9652600FAB1F2 /* AddWinView.m */; };
@@ -210,6 +212,8 @@
 		EF0066C017C99ACE00F7F91D /* dollar-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dollar-highlight.png"; sourceTree = "<group>"; };
 		EF0066C917C9A84B00F7F91D /* UIView+FirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FirstResponder.h"; sourceTree = "<group>"; };
 		EF0066CA17C9A84B00F7F91D /* UIView+FirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FirstResponder.m"; sourceTree = "<group>"; };
+		EF0066CC17CA56C800F7F91D /* browseWins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = browseWins.png; sourceTree = "<group>"; };
+		EF0066CD17CA56C800F7F91D /* browseWins@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "browseWins@2x.png"; sourceTree = "<group>"; };
 		EF33557F17C9429D00F94AA9 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
 		EF33558017C9429D00F94AA9 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		EF4773ED17C964E700FAB1F2 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
@@ -459,6 +463,8 @@
 		EF0066B817C99AC100F7F91D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EF0066CC17CA56C800F7F91D /* browseWins.png */,
+				EF0066CD17CA56C800F7F91D /* browseWins@2x.png */,
 				75B591AB17CA2D7D00DC664B /* winwin-alredy-in.png */,
 				75B591AD17CA2D8500DC664B /* winwin-alredy-in@2x.png */,
 				75B591A717CA2B9400DC664B /* im-in-button.png */,
@@ -626,6 +632,8 @@
 				75B591AA17CA2BAB00DC664B /* im-in-button@2x.png in Resources */,
 				75B591AC17CA2D7D00DC664B /* winwin-alredy-in.png in Resources */,
 				75B591AE17CA2D8500DC664B /* winwin-alredy-in@2x.png in Resources */,
+				EF0066CE17CA56C800F7F91D /* browseWins.png in Resources */,
+				EF0066CF17CA56C800F7F91D /* browseWins@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

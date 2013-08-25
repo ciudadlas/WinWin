@@ -57,10 +57,11 @@
         
         self.tableView.tableHeaderView = headerView;
     }
-    
+
     [self registerForKeyboardNotifications];
     
     self.title = @"Home";
+
 }
 
 - (void)viewDidUnload
@@ -73,6 +74,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [super viewWillAppear:animated];
     
     if ([PFUser currentUser]) {
@@ -223,15 +226,67 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.textLabel.textColor = hex_rgb(0x41AA97);
     }
  
     // Configure the cell
     cell.textLabel.text = [object objectForKey:@"name"];
-    //cell.detailTextLabel.text = [NSString stringWithFormat:@"By: %@", [[object objectForKey:@"creator"] objectForKey:@"username"]];
- 
+    
+    PFObject *creator = [object objectForKey:@"creator"];
+    [creator fetch];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"By @%@",[creator objectForKey:@"username"]];
+
     return cell;
 }
 
+- (NSString *)getUsernameFromUserObject:(PFObject *)user {
+    __block NSString *username = @"";
+    if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
+        // If user is linked to Twitter, we'll use their Twitter screen name
+        username =[NSString stringWithFormat:NSLocalizedString(@"@%@", nil), [PFTwitterUtils twitter].screenName];
+        
+    } else if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        // If user is linked to Facebook, we'll use the Facebook Graph API to fetch their full name. But first, show a generic Welcome label.
+        username =[NSString stringWithFormat:NSLocalizedString(@"Welcome!", nil)];
+        
+        // Create Facebook Request for user's details
+        FBRequest *request = [FBRequest requestForMe];
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            // This is an asynchronous method. When Facebook responds, if there are no errors, we'll update the Welcome label.
+            if (!error) {
+                NSString *displayName = result[@"name"];
+                if (displayName) {
+                    username = [NSString stringWithFormat:NSLocalizedString(@"%@", nil), displayName];
+                }
+            }
+        }];
+        
+    } else {
+        // If user is linked to neither, let's use their username for the Welcome label.
+        username =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [PFUser currentUser].username];
+        
+    }
+    
+    return username;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 86)];
+    headerView.backgroundColor = [UIColor whiteColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(22, 26, 182, 46)];
+    imageView.image = [UIImage imageNamed:@"browseWins"];
+    [headerView addSubview:imageView];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 86;
+}
 
 /*
  // Override if you need to change the ordering of objects in the table.
