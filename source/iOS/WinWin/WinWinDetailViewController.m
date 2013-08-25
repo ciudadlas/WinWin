@@ -52,49 +52,28 @@
     self.descriptionCopy.text = [self.winWin objectForKey:@"description"];
     self.winwinName.text = [self.winWin objectForKey:@"name"];
     
-    // Get username
-    if ([PFUser currentUser]) {
-        // If the user is logged in, show their name in the welcome label.
+    PFUser *user = [self.winWin objectForKey:@"creator"];
+    [user fetch];
+    
+
+    
+
         
-        if ([PFTwitterUtils isLinkedWithUser:[PFUser currentUser]]) {
-            // If user is linked to Twitter, we'll use their Twitter screen name
-            self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [PFTwitterUtils twitter].screenName];
-            
-        } else if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-            // If user is linked to Facebook, we'll use the Facebook Graph API to fetch their full name. But first, show a generic Welcome label.
-            
-            // Create Facebook Request for user's details
-            FBRequest *request = [FBRequest requestForMe];
-            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                // This is an asynchronous method. When Facebook responds, if there are no errors, we'll update the Welcome label.
-                if (!error) {
-                    NSString *displayName = result[@"name"];
-                    if (displayName) {
-                        self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), displayName];
-                    }
-                }
-            }];
-            
-        } else {
-            // If user is linked to neither, let's use their username for the Welcome label.
-            self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [PFUser currentUser].username];
-            
-        }
-    }
-    
-    self.userImage.layer.masksToBounds = YES;
-    self.userImage.layer.cornerRadius = 31;
-    
-    
-    PFQuery *query= [PFUser query];
-    
-    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-    
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error){
-               
-        [self.userImage setImageWithURL:[NSURL URLWithString:[object objectForKey:@"imageLink"]]];
+        [self.userImage setImageWithURL:[NSURL URLWithString:[user objectForKey:@"imageLink"]]];
         
-    }];
+        // If user is linked to neither, let's use their username for the Welcome label.
+        self.userName.text =[NSString stringWithFormat:NSLocalizedString(@"%@", nil), [user objectForKey:@"username"]];
+        
+        self.userImage.layer.masksToBounds = YES;
+        self.userImage.layer.cornerRadius = 31;
+        
+
+    
+       
+
+    
+    
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
