@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface WinWinDetailViewController ()
-
+- (IBAction)tappedSimulatePush:(id)sender;
 @end
 
 @implementation WinWinDetailViewController
@@ -246,6 +246,54 @@
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"Dismissed PayPal auth web view");
     }];
+}
+
+- (IBAction)tappedSimulatePush:(id)sender {
+    [self simulatePush];
+}
+
+- (void)simulatePush {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WinWin" message:@"Have you accomplished your goal of working out today?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    alert.delegate = self;
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self processHitWithResult:NO];
+            break;
+        case 1:
+            [self processHitWithResult:YES];
+            break;
+        default:
+            [self processHitWithResult:NO];
+            break;
+    }
+}
+
+- (void)processHitWithResult:(BOOL)result {
+    NSString *urlString = [NSString stringWithFormat:@"http://winwin.jit.su/processWWAction?wwId=%@&hit=%@", self.winWin.objectId, result ? @"true" : @"false"];
+    NSLog(@"Url string: %@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    __weak WinWinDetailViewController *weakSelf = self;
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation
+                                         JSONRequestOperationWithRequest:request
+                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                             NSLog(@"Completed call");
+                                             [weakSelf performSelector:@selector(viewDidAppear:) withObject:[NSNumber numberWithBool:NO] afterDelay:2];
+                                         }
+                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                             NSLog(@"Failed call");
+                                             [weakSelf performSelector:@selector(viewDidAppear:) withObject:[NSNumber numberWithBool:NO] afterDelay:2];
+                                         }];
+    
+    [operation start];
 }
 
 @end

@@ -11,7 +11,7 @@
 #import "WinWinPayPalWebViewController.h"
 
 
-@interface WinWinDetailViewController : UIViewController <WinWinPayPalWebViewControllerDelegate>
+@interface WinWinDetailViewController : UIViewController <WinWinPayPalWebViewControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) PFObject *winWin;
 
