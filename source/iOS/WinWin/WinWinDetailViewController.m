@@ -92,56 +92,80 @@
 }
 
 - (IBAction)imInButtonTap:(id)sender
-{   
-    // Create Endorsement object
-    PFObject *newEndorsement = [PFObject objectWithClassName:@"Endorsement"];
-    
-    // Set properties
-    [newEndorsement setObject:[PFUser currentUser] forKey:@"endorser"];
-    [newEndorsement setObject:self.winWin forKey:@"winwin"];
-    
-    // Save the new Endorsement object
-    [newEndorsement saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            // Dismiss the NewPostViewController and show the BlogTableViewController
-            NSLog(@"Created new Endorsement object");
-            
-            if ([sender isSelected]) {
-                [sender setSelected:NO];
+{
+    if ([sender isSelected])
+    {
+        // Delete object
+        [sender setSelected:NO];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Endorsement"];
+        [query whereKey:@"endorser" equalTo:[PFUser currentUser]];
+        [query whereKey:@"winwin" equalTo:self.winWin];
+        
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (!object) {
+                NSLog(@"The getFirstObject request failed.");
             } else {
+                // The find succeeded.
+                NSLog(@"Successfully retrieved the object.");
+                [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded && !error) {
+                        NSLog(@"Endorsement deleted from parse");
+                    } else {
+                        NSLog(@"error: %@", error); 
+                    }
+                }];
+            }
+        }];
+        
+    }
+    else
+    {
+        // Create Endorsement object
+        PFObject *newEndorsement = [PFObject objectWithClassName:@"Endorsement"];
+        
+        // Set properties
+        [newEndorsement setObject:[PFUser currentUser] forKey:@"endorser"];
+        [newEndorsement setObject:self.winWin forKey:@"winwin"];
+        
+        // Save the new Endorsement object
+        [newEndorsement saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                // Dismiss the NewPostViewController and show the BlogTableViewController
+                NSLog(@"Created new Endorsement object");
                 [sender setSelected:YES];
             }
-        }
-    }];
-    
-    NSString *userId = [[PFUser currentUser] objectId];
-    NSString *urlString = [NSString stringWithFormat:@"http://winwin.jit.su/getToken?userId=%@", userId];
-    NSLog(@"Url string: %@", urlString);
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        }];
         
-        NSLog(@"token: %@", [JSON valueForKeyPath:@"token"]);
-
-        //NSString *token = @"EC%2d85P9146718870862H";
-        
-        NSString *token = [JSON valueForKeyPath:@"token"];
-        
-        WinWinPayPalWebViewController *webVC = [[WinWinPayPalWebViewController alloc] init];
-        
-        NSString *urlString = [NSString stringWithFormat:@"https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=%@&useraction=commit", token];
-        
+        NSString *userId = [[PFUser currentUser] objectId];
+        NSString *urlString = [NSString stringWithFormat:@"http://winwin.jit.su/getToken?userId=%@", userId];
+        NSLog(@"Url string: %@", urlString);
         NSURL *url = [NSURL URLWithString:urlString];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
-        NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
+        AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            
+            NSLog(@"token: %@", [JSON valueForKeyPath:@"token"]);
+
+            //NSString *token = @"EC%2d85P9146718870862H";
+            
+            NSString *token = [JSON valueForKeyPath:@"token"];
+            
+            WinWinPayPalWebViewController *webVC = [[WinWinPayPalWebViewController alloc] init];
+            
+            NSString *urlString = [NSString stringWithFormat:@"https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=%@&useraction=commit", token];
+            
+            NSURL *url = [NSURL URLWithString:urlString];
+            
+            NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
+            
+            [self presentViewController:webVC animated:YES completion:NULL];
+            [webVC.webView loadRequest:requestURL];
+            
+        } failure:nil];
         
-        [self presentViewController:webVC animated:YES completion:NULL];
-        [webVC.webView loadRequest:requestURL];
-        
-    } failure:nil];
-    
-    [operation start];
+        [operation start];
+    }
 }
 
 @end
