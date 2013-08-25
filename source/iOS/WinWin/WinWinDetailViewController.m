@@ -33,7 +33,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // Figure out if the user has already endorsed this WinWin
+    // Figure out if the user has already endorsed this WinWin, if so disable the Endorse button
     PFQuery *query = [PFQuery queryWithClassName:@"Endorsement"];
     [query whereKey:@"endorser" equalTo:[PFUser currentUser]];
     [query whereKey:@"winwin" equalTo:self.winWin];
@@ -57,10 +57,14 @@
         NSLog(@"Existing total endorsment count: %i", count);
         if (count > 0)
         {
-            self.endorseButton.enabled = NO;
-            self.endorseButton.titleLabel.text = @"YOU'RE ALREADY IN";
+            self.backersCount.text = [NSString stringWithFormat:@"%i total backers", count];
         }
     }];
+    
+    // Figure out how many hit $
+    
+    // Figure out how many hit $
+
 
 }
 
@@ -92,13 +96,16 @@
         }
     }];
     
-    
-    NSURL *url = [NSURL URLWithString:@"http://winwin.jit.su/getToken"];
+    NSString *userId = [[PFUser currentUser] objectId];
+    NSString *urlString = [NSString stringWithFormat:@"http://winwin.jit.su/getToken?userId=%@", userId];
+    NSLog(@"Url string: %@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         NSLog(@"token: %@", [JSON valueForKeyPath:@"token"]);
+
         //NSString *token = @"EC%2d85P9146718870862H";
         
         NSString *token = [JSON valueForKeyPath:@"token"];
