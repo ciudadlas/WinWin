@@ -91,8 +91,21 @@ typedef enum {
 }
 
 - (void)close {
+    // Create object
+    PFObject *winWin = [PFObject objectWithClassName:@"WinWin"];
+    
+    // Set properties
+    [winWin setObject:[PFUser currentUser] forKey:@"creator"];
+    [winWin setObject:@"Workout once a week" forKey:@"name"];
+    [winWin setObject:@"I'm trying to stay in shape. This means a lot to me. Team up with my challenge." forKey:@"description"];
+    [winWin setObject:@"hitemail@gmail.com" forKey:@"hit_email"];
+    [winWin setObject:@"missemail@gmail.com" forKey:@"miss_email"];
+    [winWin setObject:@"M" forKey:@"confirmation_day"]; // M, T, W, Tr, F, Sa, Su
+    [winWin setObject:@"4:15" forKey:@"confirmation_time"]; // Time
+    [winWin setObject:[NSNumber numberWithInt:0] forKey:@"frequency"]; //0,1,2
+    
     if ([self.delegate respondsToSelector:@selector(completedAddWin:)]) {
-        [self.delegate completedAddWin:nil];
+        [self.delegate completedAddWin:winWin];
     }
     [self resetState];
 }

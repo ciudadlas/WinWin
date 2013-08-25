@@ -48,6 +48,7 @@
 //    WinWinHomeViewController *homeVC = [[WinWinHomeViewController alloc] init];
     WinWinListViewController *homeVC = [[WinWinListViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    navController.navigationBar.tintColor = hex_rgb(0x4EB7A8);
     self.window.rootViewController = navController;
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

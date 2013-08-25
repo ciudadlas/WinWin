@@ -265,7 +265,21 @@
     self.tableView.tableHeaderView = self.tableView.tableHeaderView;
     [UIView commitAnimations];
     
+    [self submitWinWinToServer:winWin];
+}
+
+- (void)submitWinWinToServer:(PFObject *)winWin {
+    // Save the new object
     
+    __weak WinWinListViewController *weakSelf = self;
+    
+    [winWin saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // Dismiss the NewPostViewController and show the BlogTableViewController
+            NSLog(@"Created new WinWin object");
+            [weakSelf loadObjects];
+        }
+    }];
 }
 
 @end
