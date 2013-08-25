@@ -52,6 +52,18 @@
 		75B5918517CA15EE00DC664B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5917B17CA15EE00DC664B /* Icon@2x.png */; };
 		75B5918617CA15EE00DC664B /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5917C17CA15EE00DC664B /* iTunesArtwork.png */; };
 		75B5918717CA15EE00DC664B /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5917D17CA15EE00DC664B /* iTunesArtwork@2x.png */; };
+		75B5918917CA17BB00DC664B /* twitter-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5918817CA17BB00DC664B /* twitter-logo.png */; };
+		75B5918E17CA1A7400DC664B /* signup@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5918C17CA1A7400DC664B /* signup@2px.png */; };
+		75B5919017CA1B2900DC664B /* signup.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5918F17CA1B2900DC664B /* signup.png */; };
+		75B5919217CA1B4E00DC664B /* signup-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919117CA1B4E00DC664B /* signup-bg.png */; };
+		75B5919417CA1B5E00DC664B /* signup-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919317CA1B5E00DC664B /* signup-bg@2x.png */; };
+		75B5919717CA1CB100DC664B /* winwin-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919517CA1CB100DC664B /* winwin-logo.png */; };
+		75B5919817CA1CB100DC664B /* winwin-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919617CA1CB100DC664B /* winwin-logo@2x.png */; };
+		75B5919B17CA208E00DC664B /* facebook-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919917CA208E00DC664B /* facebook-logo.png */; };
+		75B5919C17CA208E00DC664B /* facebook-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919A17CA208E00DC664B /* facebook-logo@2x.png */; };
+		75B5919E17CA214700DC664B /* twitter-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919D17CA214700DC664B /* twitter-logo@2x.png */; };
+		75B591A017CA234900DC664B /* login-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B5919F17CA234900DC664B /* login-bg.png */; };
+		75B591A217CA235400DC664B /* login-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75B591A117CA235400DC664B /* login-bg@2x.png */; };
 		75DC986D17C87920005FC7BC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986B17C878E6005FC7BC /* SystemConfiguration.framework */; };
 		75DC986E17C87920005FC7BC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986917C878DE005FC7BC /* StoreKit.framework */; };
 		75DC986F17C87920005FC7BC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75DC986717C878D8005FC7BC /* Security.framework */; };
@@ -155,6 +167,18 @@
 		75B5917B17CA15EE00DC664B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		75B5917C17CA15EE00DC664B /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		75B5917D17CA15EE00DC664B /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		75B5918817CA17BB00DC664B /* twitter-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-logo.png"; sourceTree = "<group>"; };
+		75B5918C17CA1A7400DC664B /* signup@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup@2px.png"; sourceTree = "<group>"; };
+		75B5918F17CA1B2900DC664B /* signup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signup.png; sourceTree = "<group>"; };
+		75B5919117CA1B4E00DC664B /* signup-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup-bg.png"; sourceTree = "<group>"; };
+		75B5919317CA1B5E00DC664B /* signup-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signup-bg@2x.png"; sourceTree = "<group>"; };
+		75B5919517CA1CB100DC664B /* winwin-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "winwin-logo.png"; sourceTree = "<group>"; };
+		75B5919617CA1CB100DC664B /* winwin-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "winwin-logo@2x.png"; sourceTree = "<group>"; };
+		75B5919917CA208E00DC664B /* facebook-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-logo.png"; sourceTree = "<group>"; };
+		75B5919A17CA208E00DC664B /* facebook-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-logo@2x.png"; sourceTree = "<group>"; };
+		75B5919D17CA214700DC664B /* twitter-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-logo@2x.png"; sourceTree = "<group>"; };
+		75B5919F17CA234900DC664B /* login-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bg.png"; sourceTree = "<group>"; };
+		75B591A117CA235400DC664B /* login-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bg@2x.png"; sourceTree = "<group>"; };
 		75DC985B17C87895005FC7BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		75DC985D17C878A9005FC7BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		75DC985F17C878B7005FC7BC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -325,6 +349,7 @@
 		758BB45617C874D7003551EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75B5918A17CA199F00DC664B /* LoginSignupOld */,
 				75B5917317CA15DF00DC664B /* App Icons */,
 				758BB45717C874D7003551EA /* WinWin-Info.plist */,
 				758BB45817C874D7003551EA /* InfoPlist.strings */,
@@ -412,9 +437,28 @@
 			name = "App Icons";
 			sourceTree = "<group>";
 		};
+		75B5918A17CA199F00DC664B /* LoginSignupOld */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LoginSignupOld;
+			sourceTree = "<group>";
+		};
 		EF0066B817C99AC100F7F91D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				75B5919F17CA234900DC664B /* login-bg.png */,
+				75B591A117CA235400DC664B /* login-bg@2x.png */,
+				75B5919D17CA214700DC664B /* twitter-logo@2x.png */,
+				75B5919917CA208E00DC664B /* facebook-logo.png */,
+				75B5919A17CA208E00DC664B /* facebook-logo@2x.png */,
+				75B5919517CA1CB100DC664B /* winwin-logo.png */,
+				75B5919617CA1CB100DC664B /* winwin-logo@2x.png */,
+				75B5918F17CA1B2900DC664B /* signup.png */,
+				75B5919317CA1B5E00DC664B /* signup-bg@2x.png */,
+				75B5919117CA1B4E00DC664B /* signup-bg.png */,
+				75B5918C17CA1A7400DC664B /* signup@2px.png */,
+				75B5918817CA17BB00DC664B /* twitter-logo.png */,
 				EF33558017C9429D00F94AA9 /* plus.png */,
 				EF33557F17C9429D00F94AA9 /* plus@2x.png */,
 				EF4773F317C97E0A00FAB1F2 /* pencil.png */,
@@ -546,6 +590,18 @@
 				75B5918517CA15EE00DC664B /* Icon@2x.png in Resources */,
 				75B5918617CA15EE00DC664B /* iTunesArtwork.png in Resources */,
 				75B5918717CA15EE00DC664B /* iTunesArtwork@2x.png in Resources */,
+				75B5918917CA17BB00DC664B /* twitter-logo.png in Resources */,
+				75B5918E17CA1A7400DC664B /* signup@2px.png in Resources */,
+				75B5919017CA1B2900DC664B /* signup.png in Resources */,
+				75B5919217CA1B4E00DC664B /* signup-bg.png in Resources */,
+				75B5919417CA1B5E00DC664B /* signup-bg@2x.png in Resources */,
+				75B5919717CA1CB100DC664B /* winwin-logo.png in Resources */,
+				75B5919817CA1CB100DC664B /* winwin-logo@2x.png in Resources */,
+				75B5919B17CA208E00DC664B /* facebook-logo.png in Resources */,
+				75B5919C17CA208E00DC664B /* facebook-logo@2x.png in Resources */,
+				75B5919E17CA214700DC664B /* twitter-logo@2x.png in Resources */,
+				75B591A017CA234900DC664B /* login-bg.png in Resources */,
+				75B591A217CA235400DC664B /* login-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
