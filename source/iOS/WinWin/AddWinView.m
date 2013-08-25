@@ -100,7 +100,7 @@ typedef enum {
     // Set properties
     [winWin setObject:[PFUser currentUser] forKey:@"creator"];
     [winWin setObject:@"Workout once a week" forKey:@"name"];
-    [winWin setObject:@"I'm trying to stay in shape. This means a lot to me. Team up with my challenge." forKey:@"description"];
+    [winWin setObject:@"I'm trying to stay in shape. This means a lot to me. Team up with my challenge. Every time I work out, you help pay for my workout class. If I miss my class, the money will benefit the Alzheimer's Foundation of America." forKey:@"description"];
     [winWin setObject:@"hitemail@gmail.com" forKey:@"hit_email"];
     [winWin setObject:@"missemail@gmail.com" forKey:@"miss_email"];
     [winWin setObject:@"M" forKey:@"confirmation_day"]; // M, T, W, Tr, F, Sa, Su
