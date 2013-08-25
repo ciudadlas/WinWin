@@ -36,6 +36,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIButton *moneyButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (strong, nonatomic) NSArray *buttons;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 - (IBAction)tappedAdd:(id)sender;
 - (IBAction)tappedAddWinButton:(id)sender;
@@ -63,6 +64,7 @@ typedef enum {
     [self disableButton:self.textButton];
     
     self.scrollView.delegate = self;
+    self.segmentedControl.frame = CGRectMake(139, 10, 161, 40);
 }
 
 /*
