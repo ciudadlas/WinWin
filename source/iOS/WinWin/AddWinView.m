@@ -8,25 +8,49 @@
 
 #import "AddWinView.h"
 
+typedef enum {
+	AddWinButtonText = 0,
+	AddWinButtonTime = 1,
+	AddWinButtonMoney = 2,
+    AddWinButtonShare = 3
+} AddWinButtons;
+
 @interface AddWinView ()
 
 @property (strong) PFObject *winWin;
+@property (assign) BOOL complete;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *textButton;
+@property (weak, nonatomic) IBOutlet UIButton *timeButton;
+@property (weak, nonatomic) IBOutlet UIButton *moneyButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) NSArray *buttons;
 
 - (IBAction)tappedAdd:(id)sender;
-- (IBAction)tappedDone:(id)sender;
+- (IBAction)tappedAddWinButton:(id)sender;
 
 @end
 
 @implementation AddWinView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [[NSBundle mainBundle] loadNibNamed:@"AddWinView" owner:self options:nil];
-        [self addSubview:self.view];
-    }
-    return self;
+//- (id)initWithFrame:(CGRect)frame
+//{
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        [[NSBundle mainBundle] loadNibNamed:@"AddWinView" owner:self options:nil];
+//        [self addSubview:self.view];
+//        self.scrollView.contentSize = CGSizeMake(1280,220);
+//    }
+//    return self;
+//}
+
+- (void)awakeFromNib {
+    self.scrollView.contentSize = CGSizeMake(1280,220);
+    
+    self.buttons = @[self.textButton, self.timeButton, self.moneyButton, self.shareButton];
+    [self disableButton:self.textButton];
+    
+    self.scrollView.delegate = self;
 }
 
 /*
@@ -39,15 +63,68 @@
 */
 
 - (IBAction)tappedAdd:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(tappedAddWin)]) {
-        [self.delegate tappedAddWin];
+    if (self.complete == NO) {
+        [self open];
+    }
+    else {
+        [self close];
     }
 }
 
-- (IBAction)tappedDone:(id)sender {
+- (void)open {
+    if ([self.delegate respondsToSelector:@selector(tappedAddWin)]) {
+        [self.delegate tappedAddWin];
+    }
+#pragma warn - just for debugging
+    self.complete = YES;
+}
+
+- (void)close {
     if ([self.delegate respondsToSelector:@selector(completedAddWin:)]) {
         [self.delegate completedAddWin:nil];
     }
+    [self resetState];
+}
+
+- (void)resetState {
+    self.complete = NO;
+}
+
+- (IBAction)tappedAddWinButton:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    [self disableButton:button];
+    CGFloat xOffset = button.tag * self.scrollView.frame.size.width;
+    CGRect offsetFrame = CGRectMake(xOffset, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    [self.scrollView scrollRectToVisible:offsetFrame animated:YES];
+}
+
+- (void)disableButton:(UIButton *)button {
+    for (UIButton *aButton in self.buttons) {
+        BOOL disableButton = aButton == button;
+        aButton.enabled = !disableButton;
+    }
+}
+
+#pragma mark - UIScrollViewDelegate methods
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self disableAppropriateButton];
+}
+
+- (void)disableAppropriateButton {
+    int page = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
+    UIButton *button = [self buttonForTag:page];
+    [self disableButton:button];
+}
+
+- (UIButton *)buttonForTag:(int)tag {
+    UIButton *button = nil;
+    for (UIButton *aButton in self.buttons) {
+        if (aButton.tag == tag) {
+            button = aButton;
+        }
+    }
+    return button;
 }
 
 @end

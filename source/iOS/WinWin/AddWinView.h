@@ -11,7 +11,7 @@
 
 @protocol AddWinViewDelegate;
 
-@interface AddWinView : UIView
+@interface AddWinView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UIView *view;
 @property (weak, nonatomic) id <AddWinViewDelegate> delegate;

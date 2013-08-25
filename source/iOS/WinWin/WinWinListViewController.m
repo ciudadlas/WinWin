@@ -47,12 +47,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    AddWinView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"AddWinView" owner:self options:nil] lastObject];
-    headerView.frame = CGRectMake(0, 0, 320, AddWinViewHeight);
-    headerView.delegate = self;
-    
-    self.tableView.tableHeaderView = headerView;
+    if (self.tableView.tableHeaderView == nil) {
+        AddWinView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"AddWinView" owner:self options:nil] lastObject];
+        headerView.frame = CGRectMake(0, 0, 320, AddWinViewHeight);
+        headerView.delegate = self;
+        
+        self.tableView.tableHeaderView = headerView;
+    }    
 }
 
 - (void)viewDidUnload
