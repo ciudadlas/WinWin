@@ -39,6 +39,7 @@ typedef enum {
 
 - (IBAction)tappedAdd:(id)sender;
 - (IBAction)tappedAddWinButton:(id)sender;
+- (IBAction)tappedSimulatePush:(id)sender;
 
 @end
 
@@ -120,6 +121,12 @@ typedef enum {
     CGFloat xOffset = button.tag * self.scrollView.frame.size.width;
     CGRect offsetFrame = CGRectMake(xOffset, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     [self.scrollView scrollRectToVisible:offsetFrame animated:YES];
+}
+
+- (IBAction)tappedSimulatePush:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(simulatePush)]) {
+        [self.delegate simulatePush];
+    }
 }
 
 - (void)disableButton:(UIButton *)button {

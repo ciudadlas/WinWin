@@ -22,4 +22,5 @@
 @protocol AddWinViewDelegate <NSObject>
 - (void)tappedAddWin;
 - (void)completedAddWin:(PFObject *)winWin;
+- (void)simulatePush;
 @end

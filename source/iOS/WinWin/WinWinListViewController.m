@@ -10,12 +10,14 @@
 #import "UIView+FirstResponder.h"
 #import "WinWinSignUpViewController.h"
 #import "WinWinLoginViewController.h"
+#import "AFJSONRequestOperation.h"
 
 #define AddWinViewHeight 160
 
 @interface WinWinListViewController ()
 
 @property (assign) BOOL addingNew;
+- (IBAction)tappedSimulatePushButton:(id)sender;
 
 @end
 
@@ -279,9 +281,17 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 86)];
     headerView.backgroundColor = [UIColor whiteColor];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(22, 26, 182, 46)];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(22, 26, 46, 46)];
     imageView.image = [UIImage imageNamed:@"browseWins"];
     [headerView addSubview:imageView];
+    
+    UILabel *browseLabel = [[UILabel alloc] initWithFrame:CGRectMake(88, 26, 200, 46)];
+    browseLabel.text = @"Browse WinWins";
+    browseLabel.textColor = hex_rgb(0xE75735);
+    browseLabel.font = [UIFont systemFontOfSize:24];
+    [headerView addSubview:browseLabel];
+    
     return headerView;
 }
 
@@ -462,5 +472,6 @@
         }
     }];
 }
+
 
 @end

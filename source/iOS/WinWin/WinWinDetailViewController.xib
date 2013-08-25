@@ -81,7 +81,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">I'M IN                                      </string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor">
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="456530977">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
@@ -89,7 +89,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleShadowColor">
+						<object class="NSColor" key="IBUINormalTitleShadowColor" id="1044954385">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
@@ -261,7 +261,7 @@
 						<string key="NSFrame">{{129, 42}, {93, 21}}</string>
 						<reference key="NSSuperview" ref="381548674"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="817665677"/>
+						<reference key="NSNextKeyView" ref="747872886"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -322,6 +322,34 @@
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica-Oblique</string>
 							<double key="NSSize">19</double>
+							<int key="NSfFlags">16</int>
+						</object>
+					</object>
+					<object class="IBUIButton" id="747872886">
+						<reference key="NSNextResponder" ref="381548674"/>
+						<int key="NSvFlags">1316</int>
+						<string key="NSFrame">{{260, 0}, {60, 60}}</string>
+						<reference key="NSSuperview" ref="381548674"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="817665677"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<reference key="IBUIHighlightedTitleColor" ref="456530977"/>
+						<object class="NSColor" key="IBUINormalTitleColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
+						</object>
+						<reference key="IBUINormalTitleShadowColor" ref="1044954385"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<int key="size">2</int>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">18</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -452,6 +480,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">tappedSimulatePush:</string>
+						<reference key="source" ref="747872886"/>
+						<reference key="destination" ref="331625741"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<string key="id">ILX-Pm-ny0</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">imInButtonTap:</string>
 						<reference key="source" ref="295249695"/>
 						<reference key="destination" ref="331625741"/>
@@ -494,6 +531,7 @@
 							<reference ref="817665677"/>
 							<reference ref="84450263"/>
 							<reference ref="970424252"/>
+							<reference ref="747872886"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -557,6 +595,11 @@
 						<reference key="object" ref="817665677"/>
 						<reference key="parent" ref="381548674"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">VRd-C0-1D6</string>
+						<reference key="object" ref="747872886"/>
+						<reference key="parent" ref="381548674"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -574,6 +617,7 @@
 				<string key="LIH-6w-OUK.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="N4y-QE-pYF.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="NfP-RD-zIq.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="VRd-C0-1D6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="Weu-US-OLi.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="YY4-lr-LuU.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="YfN-fD-qHv.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -592,17 +636,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">WinWinDetailViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">imInButtonTap:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">imInButtonTap:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="imInButtonTap:">id</string>
+						<string key="tappedSimulatePush:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="imInButtonTap:">
 							<string key="name">imInButtonTap:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="tappedSimulatePush:">
+							<string key="name">tappedSimulatePush:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="backersCount">UILabel</string>
 						<string key="backersCountLabel">UILabel</string>
